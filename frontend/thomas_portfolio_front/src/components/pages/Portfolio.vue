@@ -31,9 +31,8 @@ export default {
   components: {
     Project
   },
-  created() {
+  mounted() {
     this.fetchData();
-    this.timer = setInterval(this.fetchData, 10000);
   },
   methods: {
     fetchData() {
@@ -46,9 +45,6 @@ export default {
           this.errors.push(e);
         });
     }
-  },
-  beforeUnmount() {
-    clearInterval(this.timer);
   }
 };
 </script>
