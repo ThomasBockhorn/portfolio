@@ -1,8 +1,5 @@
 <template>
     <main>
-        <div v-if="isLoading">
-            <LoadingScreen v-if="isLoading"></LoadingScreen>
-        </div>
         <div v-if="!isLoading">
             <Header/>
             <routerView></routerView>
@@ -14,14 +11,12 @@
 <script>
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
-import LoadingScreen from "./components/pages/LoadingScreen.vue";
 
 export default {
     name: "App",
     components: {
         Header,
-        Footer,
-        LoadingScreen
+        Footer
     },
     data(){
         return{
