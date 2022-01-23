@@ -8,7 +8,7 @@
         </form>
       </div>
     </nav>
-    <div class="d-flex flex-wrap overflow-auto justify-content-center">
+    <div class="d-flex flex-wrap overflow-auto justify-content-center" v-if="downLoadReady">
       <div v-for="project in projects" :key="project.id">
         <Project :project="project"></Project>
       </div>
@@ -24,14 +24,13 @@ export default {
   data() {
     return {
       projects: [],
-      errors: [],
-      timer: ""
+      downLoadReady: false
     };
   },
   components: {
     Project
   },
-  mounted() {
+  async mounted() {
     this.fetchData();
   },
   methods: {
@@ -42,9 +41,11 @@ export default {
           this.projects = response.data.data;
         })
         .catch(e => {
-          this.errors.push(e);
+          console.log(e);
+        }).finally(() => {
+          this.downLoadReady = true;
         });
-    }
+    },
   }
 };
 </script>
