@@ -1,8 +1,8 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid mt-5">
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <form class="d-flex">
+        <form class="d-flex mt-3">
           <input class="form-control me-2" type="search" placeholder="Project" aria-label="Search" />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
