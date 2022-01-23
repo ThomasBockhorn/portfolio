@@ -1,10 +1,8 @@
 <template>
     <main>
-        <div v-if="!isLoading">
-            <Header/>
-            <routerView></routerView>
-            <Footer/>
-        </div>
+        <Header/>
+        <routerView></routerView>
+        <Footer/>
     </main>
 </template>
 
@@ -18,16 +16,6 @@ export default {
         Header,
         Footer
     },
-    data(){
-        return{
-            isLoading: true
-        }
-    },
-    mounted(){
-        setTimeout(() => {
-            this.isLoading = false
-        }, 3000)
-    }
 };
 </script>
 
