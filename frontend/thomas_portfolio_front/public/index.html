@@ -13,7 +13,7 @@
         />
         <title><%= htmlWebpackPlugin.options.title %></title>
     </head>
-    <body class="h-100">
+    <body class="h-100 main">
         <noscript>
             <strong
                 >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't
@@ -25,3 +25,17 @@
         <!-- built files will be auto injected -->
     </body>
 </html>
+
+<style>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+        .main::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .main {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+</style>

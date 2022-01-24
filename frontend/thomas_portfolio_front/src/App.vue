@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="main">
         <Header v-if="$route.meta.header === true"/>
         <transition name="fade" mode="out-in">
             <routerView></routerView>
