@@ -26,5 +26,6 @@ export default {
         display: flex;
         background-color: black;
         position: relative;
+        overflow:hidden;
     }
 </style>
