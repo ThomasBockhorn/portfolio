@@ -1,8 +1,8 @@
 <template>
     <main>
-        <Header/>
+        <Header v-if="$route.meta.header === true"/>
         <routerView></routerView>
-        <Footer/>
+        <Footer v-if="$route.meta.header === true"/>
     </main>
 </template>
 
@@ -15,7 +15,7 @@ export default {
     components: {
         Header,
         Footer
-    },
+    }
 };
 </script>
 
