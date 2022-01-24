@@ -21,7 +21,8 @@ export default {
     }
 
     .flex-container{
-        height: 100%;
+        height: 100vh;
+        width: 100%;
         display: flex;
         background-color: black;
         position: relative;
