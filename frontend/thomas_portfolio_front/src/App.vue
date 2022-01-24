@@ -1,7 +1,9 @@
 <template>
     <main>
         <Header v-if="$route.meta.header === true"/>
-        <routerView></routerView>
+        <transition name="fade" mode="out-in">
+            <routerView></routerView>
+        </transition>
         <Footer v-if="$route.meta.header === true"/>
     </main>
 </template>
@@ -20,7 +22,14 @@ export default {
 </script>
 
 <style scoped>
-    main{
-        overflow: hidden;
+   
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
     }
 </style>
