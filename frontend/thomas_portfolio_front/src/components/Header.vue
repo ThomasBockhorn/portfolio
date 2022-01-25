@@ -54,7 +54,6 @@ export default {};
 <style scoped>
   ul li.router-link-active {
     color: white;
-    font-weight: bold;
     cursor: pointer;
   }
 

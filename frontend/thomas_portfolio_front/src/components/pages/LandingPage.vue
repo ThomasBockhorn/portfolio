@@ -10,7 +10,9 @@
 </template>
 <script>
 export default {
-    
+   created(){
+       setTimeout( () => this.$router.push({path: '/home'}), 14000);
+   }
 }
 </script>
 <style scoped>
