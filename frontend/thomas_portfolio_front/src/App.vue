@@ -1,8 +1,8 @@
 <template>
     <main class="main">
-        <Header v-if="$route.meta.header === true"/>
+        <Header v-if="$route.meta.header === true"/>    
         <transition name="fade" mode="out-in">
-            <routerView></routerView>
+            <router-view :key="$route.fullPath"></router-view>
         </transition>
         <Footer v-if="$route.meta.header === true"/>
     </main>
@@ -22,14 +22,16 @@ export default {
 </script>
 
 <style scoped>
-   
-    .fade-enter-active,
-    .fade-leave-active {
-        transition: opacity 0.5s ease;
-    }
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .25s;
+}
 
-    .fade-enter-from,
-    .fade-leave-to {
-        opacity: 0;
-    }
+.fade-enter-active {
+  transition-delay: .25s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
 </style>
