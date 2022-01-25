@@ -13,13 +13,11 @@
 </template>
 <script>
 export default {
-   created(){
-       setTimeout( () => this.$router.push({path: '/home'}), 14000);
-   },
    methods:{
        launch(){
            let playButton = document.getElementById("video");
            playButton.play();
+           setTimeout( () => this.$router.push({path: '/home'}), 10000);
        }
    }
 }
