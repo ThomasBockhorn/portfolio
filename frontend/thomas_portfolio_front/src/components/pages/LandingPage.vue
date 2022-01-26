@@ -1,6 +1,6 @@
 <template>
     <div class="flex-container">
-        <div>
+        <div id="controlModel" class="position-absolute top-50 start-50 translate-middle">
             <button @click="launch" class="btn-primary">Launch</button>
         </div>
         <div class="videoPlayer">
@@ -16,6 +16,8 @@ export default {
    methods:{
        launch(){
            let playButton = document.getElementById("video");
+           let controlModel = document.getElementById("controlModel");
+           controlModel.style.display = 'none';
            playButton.play();
            setTimeout( () => this.$router.push({path: '/home'}), 10000);
        }
@@ -36,5 +38,9 @@ export default {
         background-color: black;
         position: relative;
         overflow:hidden;
+    }
+
+    #controlModel{
+        z-index: 99999;
     }
 </style>
