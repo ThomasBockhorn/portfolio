@@ -5,22 +5,25 @@
             alt="geometric banner"
             class="w-100"
         />
-        <div role="heading" aria-lavel="1" class="title">
+        <div role="heading" aria-lavel="1" class="title d-flex flex-column text-center">
             <h1 aria-labelledby="{{ this.title }}">{{ this.title }}</h1>
+            <h2 aria-labelledby="{{ this.subtitle }}">{{ this.subtitle }}</h2>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    data(){
+    data() {
         return {
-            title: String
-        }
+            title: String,
+            subtitle: String,
+        };
     },
-    mounted(){
+    mounted() {
         this.title = this.$route.meta.title;
-    }
+        this.subtitle = this.$route.meta.subtitle;
+    },
 };
 </script>
 
@@ -36,11 +39,12 @@ export default {
     transform: translate(-50%, -50%);
 }
 
-h1{
+h1,
+h2 {
     color: white;
 }
 
-img{
+img {
     width: 100%;
     height: 35em;
 }

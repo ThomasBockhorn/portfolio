@@ -11,7 +11,7 @@ import Portfolio from "../src/components/pages/Portfolio.vue";
 
 const routes = [
     { path: "/", component: LandingPage, meta: { header: false } },
-    { path: "/home", component: Home,  meta: { header: true, title: 'Welcome' }},
+    { path: "/home", component: Home,  meta: { header: true, title: 'Hi, My name is Thomas Bockhorn', subtitle: 'I am a fullstack web developer' }},
     { path: "/about", component: About, meta: { header: true, title: 'About' }},
     { path: "/contact", component: Contact, meta: { header: true, title: 'Contact'}},
     { path: "/portfolio", component: Portfolio, meta: {header: true, title: 'Portfolio' }},
