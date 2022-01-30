@@ -5,8 +5,8 @@
             alt="geometric banner"
             class="w-100"
         />
-        <div class="title">
-            <h1>{{ this.title }}</h1>
+        <div role="heading" aria-lavel="1" class="title">
+            <h1 aria-labelledby="{{ this.title }}">{{ this.title }}</h1>
         </div>
     </div>
 </template>
