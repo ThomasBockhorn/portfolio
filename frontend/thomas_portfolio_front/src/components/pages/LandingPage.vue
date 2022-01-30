@@ -3,7 +3,7 @@
         <div id="controlModel" class="position-relative w-100">
             <div class="position-absolute top-50 start-50 translate-middle">
                 <h1 class="text-center">Thomas Bockhorn</h1>
-                <h2 class="text-center mb-4">Software Engineer</h2>
+                <h2 class="text-center mb-4">Fullstack Web Developer</h2>
                 <button @click="launch" class="btn btn-danger btn-lg">Launch</button> 
             </div>
         </div>
