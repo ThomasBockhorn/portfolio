@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bg-transparent">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Thomas Bockhorn</a>
       <button

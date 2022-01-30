@@ -1,10 +1,12 @@
 <template>
     <main class="main">
-        <Header v-if="$route.meta.header === true"/>    
-        <transition name="fade" mode="out-in">
-            <router-view :key="$route.fullPath"></router-view>
-        </transition>
-        <Footer v-if="$route.meta.header === true"/>
+        <Header v-if="$route.meta.header != false"/>  
+        <router-view v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+              <component :is="Component" />
+          </transition>
+        </router-view>
+        <Footer v-if="$route.meta.header != false"/>
     </main>
 </template>
 
