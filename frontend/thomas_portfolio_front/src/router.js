@@ -11,10 +11,10 @@ import Portfolio from "../src/components/pages/Portfolio.vue";
 
 const routes = [
     { path: "/", component: LandingPage, meta: { header: false } },
-    { path: "/home", component: Home,  meta: { header: true }},
-    { path: "/about", component: About, meta: { header: true }},
-    { path: "/contact", component: Contact, meta: { header: true}},
-    { path: "/portfolio", component: Portfolio, meta: {header: true} },
+    { path: "/home", component: Home,  meta: { header: true, title: 'Welcome' }},
+    { path: "/about", component: About, meta: { header: true, title: 'About' }},
+    { path: "/contact", component: Contact, meta: { header: true, title: 'Contact'}},
+    { path: "/portfolio", component: Portfolio, meta: {header: true, title: 'Portfolio' }},
 ];
 
 const router = createRouter({

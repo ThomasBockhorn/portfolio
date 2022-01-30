@@ -6,13 +6,22 @@
             class="w-100"
         />
         <div class="title">
-            <h1>Welcome</h1>
+            <h1>{{ this.title }}</h1>
         </div>
     </div>
 </template>
 
 <script>
-export default {};
+export default {
+    data(){
+        return {
+            title: String
+        }
+    },
+    mounted(){
+        this.title = this.$route.meta.title;
+    }
+};
 </script>
 
 <style scoped>
@@ -29,5 +38,10 @@ export default {};
 
 h1{
     color: white;
+}
+
+img{
+    width: 100%;
+    height: 35em;
 }
 </style>

@@ -1,9 +1,17 @@
 <template>
-    <div>Contact page</div>
+    <div>
+        <MainBanner></MainBanner>
+    </div>
 </template>
 
 <script>
-export default {};
+import MainBanner from "../components/MainBanner.vue";
+
+export default {
+    components:{
+        MainBanner
+    }
+};
 </script>
 
 <style></style>
