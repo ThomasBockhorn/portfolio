@@ -10,7 +10,7 @@
             <h2 aria-labelledby="{{ this.subtitle }}">{{ this.subtitle }}</h2>
             <hr />
             <div>
-               <a href="#about"><i class="far fa-arrow-alt-circle-down fa-5x"></i></a>
+               <a href="#about"><i class="far fa-arrow-alt-circle-down fa-3x"></i></a>
             </div>
         </div>
     </div>
