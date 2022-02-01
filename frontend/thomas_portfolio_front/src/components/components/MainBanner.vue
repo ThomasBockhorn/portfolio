@@ -1,13 +1,17 @@
 <template>
     <div class="container-fluid m-0 p-0">
-        <img
-            src="../../assets/geometric.jpg"
-            alt="geometric banner"
-            class="w-100"
-        />
-        <div role="heading" aria-lavel="1" class="title d-flex flex-column text-center">
+        <img src="../../assets/geometric.jpg" alt="geometric banner" />
+        <div
+            role="heading"
+            aria-lavel="1"
+            class="title d-flex flex-column text-center"
+        >
             <h1 aria-labelledby="{{ this.title }}">{{ this.title }}</h1>
             <h2 aria-labelledby="{{ this.subtitle }}">{{ this.subtitle }}</h2>
+            <hr />
+            <div>
+               <a href="#about"><i class="far fa-arrow-alt-circle-down fa-5x"></i></a>
+            </div>
         </div>
     </div>
 </template>
@@ -30,6 +34,8 @@ export default {
 <style scoped>
 .container-fluid {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .title {
@@ -46,6 +52,10 @@ h2 {
 
 img {
     width: 100%;
-    height: 35em;
+    height: 100%;
+}
+
+i{
+    color: white;
 }
 </style>
