@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid mt-2">
+    <div class="container-fluid mt-2 mb-2">
         <div id="about" class="row">
             <div class="col-lg-3">
                 <img src="../../assets/ThomasBockhorn.jpg" alt="self image" />
