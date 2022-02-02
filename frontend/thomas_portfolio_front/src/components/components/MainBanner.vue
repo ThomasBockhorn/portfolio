@@ -10,7 +10,9 @@
             <h2 aria-labelledby="{{ this.subtitle }}">{{ this.subtitle }}</h2>
             <hr />
             <div>
-               <a href="#about"><i class="far fa-arrow-alt-circle-down fa-3x"></i></a>
+                <a href="#" @click.prevent="goTo(mainComponentName)"
+                    ><i class="far fa-arrow-alt-circle-down fa-3x"></i
+                ></a>
             </div>
         </div>
     </div>
@@ -27,6 +29,17 @@ export default {
     mounted() {
         this.title = this.$route.meta.title;
         this.subtitle = this.$route.meta.subtitle;
+    },
+    props: {
+        mainComponentName: String,
+    },
+    methods: {
+        goTo(refName) {
+            let location = document.getElementById(refName);
+            if (location) {
+                location.scrollIntoView({ behavior: "smooth" });
+            }
+        },
     },
 };
 </script>
@@ -55,7 +68,7 @@ img {
     height: 100%;
 }
 
-i{
+i {
     color: white;
 }
 </style>

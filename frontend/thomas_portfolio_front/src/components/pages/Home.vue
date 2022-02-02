@@ -1,6 +1,6 @@
 <template>
     <div>
-        <MainBanner></MainBanner>
+        <MainBanner v-bind:mainComponentName="this.location"></MainBanner>
         <AboutComponent></AboutComponent>
     </div>
 </template>
@@ -10,11 +10,15 @@ import MainBanner from "../components/MainBanner.vue";
 import AboutComponent from "../components/AboutComponent.vue";
 
 export default {
-    components:{
+    components: {
         MainBanner,
-        AboutComponent
+        AboutComponent,
+    },
+    data(){
+        return{
+            location: "about"
+        }
     }
-
 };
 </script>
 
