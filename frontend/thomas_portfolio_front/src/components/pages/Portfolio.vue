@@ -1,7 +1,7 @@
 <template>
     <div>
-        <MainBanner></MainBanner>
-        <div class="container-fluid mt-5">
+        <MainBanner v-bind:mainComponentName="this.location"></MainBanner>
+        <div id="portfolio" class="container-fluid mt-5">
             <nav class="navbar navbar-light bg-light">
                 <div class="container-fluid">
                     <form class="d-flex mt-3">
@@ -39,6 +39,7 @@ export default {
         return {
             projects: [],
             downLoadReady: false,
+            location: "portfolio"
         };
     },
     components: {
