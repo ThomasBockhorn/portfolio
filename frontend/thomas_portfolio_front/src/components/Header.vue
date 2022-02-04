@@ -1,6 +1,7 @@
 <template>
     <nav
-        class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bg-transparent"
+        class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bg-transparent" 
+        :class="{changeBackgroundColor: scrollPosition > 600}"
     >
         <div class="container-fluid">
             <a class="navbar-brand" href="#"></a>
@@ -56,12 +57,30 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      scrollPosition: null
+    }
+  },
+  methods:{
+    updateScrollPosition(){
+      this.scrollPosition = window.scrollY;
+    }
+  },
+  mounted(){
+    window.addEventListener('scroll', this.updateScrollPosition);
+  }
+};
 </script>
 
 <style scoped>
 ul li.router-link-active {
-    color: white;
+    color: white !important;
     cursor: pointer;
+}
+
+.changeBackgroundColor{
+  background-color: black !important;
 }
 </style>
