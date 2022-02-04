@@ -33,7 +33,7 @@
                     interesting and compelling. It all depends on the content. I
                     make compelling websites that garner viewer's attention.
                 </p>
-                <p>I work with Java, PHP, Laravel, CSS, HTML, Vue, MySql.</p>
+                <p>I work with Java, Spring, PHP, Laravel, CSS, HTML, Vue, MySql.</p>
                 <p>-Thomas Bockhorn</p>
             </div>
         </div>

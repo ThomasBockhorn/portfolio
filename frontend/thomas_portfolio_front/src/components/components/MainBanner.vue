@@ -63,6 +63,10 @@ h2 {
     color: white;
 }
 
+h2{
+    font-size: 1em;
+}
+
 img {
     width: 100%;
     height: 100%;

@@ -1,28 +1,33 @@
 <template>
     <div>
         <MainBanner v-bind:mainComponentName="this.location"></MainBanner>
-        <div id="portfolio" class="container-fluid mt-5">
-            <nav class="navbar navbar-light bg-light">
-                <div class="container-fluid">
-                    <form class="d-flex mt-3">
-                        <input
-                            class="form-control me-2"
-                            type="search"
-                            placeholder="Project"
-                            aria-label="Search"
-                        />
-                        <button class="btn btn-outline-success" type="submit">
-                            Search
-                        </button>
-                    </form>
-                </div>
-            </nav>
-            <div
-                class="d-flex flex-wrap overflow-auto justify-content-center"
-                v-if="downLoadReady"
-            >
-                <div v-for="project in projects" :key="project.id">
-                    <Project :project="project"></Project>
+        <div id="portfolio">
+            <div class="container-fluid mt-5">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <form class="d-flex mt-3">
+                            <input
+                                class="form-control me-2"
+                                type="search"
+                                placeholder="Project"
+                                aria-label="Search"
+                            />
+                            <button
+                                class="btn btn-outline-success"
+                                type="submit"
+                            >
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                </nav>
+                <div
+                    class="d-flex flex-wrap overflow-auto justify-content-center"
+                    v-if="downLoadReady"
+                >
+                    <div v-for="project in projects" :key="project.id">
+                        <Project :project="project"></Project>
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,7 +44,7 @@ export default {
         return {
             projects: [],
             downLoadReady: false,
-            location: "portfolio"
+            location: "portfolio",
         };
     },
     components: {
