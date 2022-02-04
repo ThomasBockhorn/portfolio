@@ -2,7 +2,7 @@
     <main class="main">
         <Header v-if="$route.meta.header != false"/>  
         <router-view v-slot="{ Component }">
-          <transition name="fade" mode="out-in">
+          <transition name="fade" mode="out-in" @before-enter="scrollTop">
               <component :is="Component" />
           </transition>
         </router-view>
@@ -19,6 +19,11 @@ export default {
     components: {
         Header,
         Footer
+    },
+    methods:{
+      scrollTop(){
+        document.getElementById('app').scrollIntoView()
+      }
     }
 };
 </script>
