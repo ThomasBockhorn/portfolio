@@ -1,6 +1,6 @@
 <template>
     <div>
-        <MainBanner></MainBanner>
+        <MainBanner v-bind:mainComponentName="this.location"></MainBanner>
         <ResumeComponent></ResumeComponent>
     </div>
 </template>
@@ -13,6 +13,11 @@ export default {
     components:{
         MainBanner,
         ResumeComponent
+    },
+    data(){
+        return{
+            location: "resume"
+        }
     }
 
 };
