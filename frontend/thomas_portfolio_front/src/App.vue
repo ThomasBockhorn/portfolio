@@ -31,11 +31,11 @@ export default {
 <style scoped>
 .fade-enter-active, .fade-leave-active {
   transition-property: opacity;
-  transition-duration: .50s;
+  transition-duration: .25s;
 }
 
 .fade-enter-active {
-  transition-delay: .50s;
+  transition-delay: .25s;
 }
 
 .fade-enter, .fade-leave-active {
