@@ -3,7 +3,7 @@
         class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bg-transparent" 
         :class="{changeBackgroundColor: scrollPosition > 600}"
     >
-        <div class="container-fluid">
+        <div class="container">
             <a class="navbar-brand" href="#"></a>
             <button
                 class="navbar-toggler"
@@ -82,5 +82,20 @@ ul li.router-link-active {
 
 .changeBackgroundColor{
   background-color: black !important;
+}
+
+@media screen and ( max-width: 768px){
+    #navbarSupportedContent{
+        background-color: white;
+        border-radius: 25px;
+    }
+
+    a{
+        color: black !important;
+        text-align: center;
+        margin: 2em;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
 }
 </style>
