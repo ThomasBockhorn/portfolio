@@ -8,7 +8,6 @@
         >
             <h1 aria-labelledby="{{ this.title }}">{{ this.title }}</h1>
             <h2 aria-labelledby="{{ this.subtitle }}">{{ this.subtitle }}</h2>
-            <hr />
             <div>
                 <a href="#" @click.prevent="goTo(mainComponentName)"
                     ><i class="far fa-arrow-alt-circle-down fa-3x"></i
@@ -74,5 +73,11 @@ img {
 
 i {
     color: white;
+}
+
+@media screen and (max-width: 425px ){
+    h2{
+        display: none;
+    }
 }
 </style>
