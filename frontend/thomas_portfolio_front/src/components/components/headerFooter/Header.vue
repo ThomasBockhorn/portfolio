@@ -24,6 +24,7 @@
                             to="/home"
                             class="nav-link"
                             aria-current="Home"
+                            @click="reloadPage"
                             >Home</router-link
                         >
                     </li>
@@ -32,6 +33,7 @@
                             to="/resume"
                             class="nav-link"
                             aria-current="Resume"
+                            @click="reloadPage"
                             >Resume</router-link
                         >
                     </li>
@@ -40,6 +42,7 @@
                             to="/portfolio"
                             class="nav-link"
                             aria-current="Project"
+                            @click="reloadPage"
                             >Projects</router-link
                         >
                     </li>
@@ -48,6 +51,7 @@
                             to="/contact"
                             class="nav-link"
                             aria-current="Contact"
+                            @click="reloadPage"
                             >Contact</router-link
                         >
                     </li>
@@ -68,6 +72,9 @@ export default {
         updateScrollPosition() {
             this.scrollPosition = window.scrollY;
         },
+        reloadPage() {
+            window.location.reload();
+        }
     },
     mounted() {
         window.addEventListener("scroll", this.updateScrollPosition);
