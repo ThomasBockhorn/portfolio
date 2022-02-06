@@ -9,7 +9,10 @@
             <h1 aria-labelledby="{{ this.title }}">{{ this.title }}</h1>
             <h2 aria-labelledby="{{ this.subtitle }}">{{ this.subtitle }}</h2>
             <div>
-                <a href="#" @click.prevent="goTo(mainComponentName)"
+                <a
+                    id="dropdownArrow"
+                    href="#"
+                    @click.prevent="goTo(mainComponentName)"
                     ><i class="far fa-arrow-alt-circle-down fa-3x"></i
                 ></a>
             </div>
@@ -62,7 +65,7 @@ h2 {
     color: white;
 }
 
-h2{
+h2 {
     font-size: 1em;
 }
 
@@ -75,8 +78,9 @@ i {
     color: white;
 }
 
-@media screen and (max-width: 425px ){
-    h2{
+@media screen and (max-width: 425px) {
+    h2,
+    #dropdownArrow {
         display: none;
     }
 }

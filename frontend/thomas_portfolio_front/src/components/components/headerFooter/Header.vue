@@ -1,7 +1,8 @@
 <template>
     <nav
-        class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bg-transparent" 
-        :class="{changeBackgroundColor: scrollPosition > 600}"
+        id="navbar"
+        class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bg-transparent"
+        :class="{ changeBackgroundColor: scrollPosition > 600 }"
     >
         <div class="container">
             <a class="navbar-brand" href="#"></a>
@@ -58,19 +59,19 @@
 
 <script>
 export default {
-  data(){
-    return{
-      scrollPosition: null
-    }
-  },
-  methods:{
-    updateScrollPosition(){
-      this.scrollPosition = window.scrollY;
-    }
-  },
-  mounted(){
-    window.addEventListener('scroll', this.updateScrollPosition);
-  }
+    data() {
+        return {
+            scrollPosition: null,
+        };
+    },
+    methods: {
+        updateScrollPosition() {
+            this.scrollPosition = window.scrollY;
+        },
+    },
+    mounted() {
+        window.addEventListener("scroll", this.updateScrollPosition);
+    },
 };
 </script>
 
@@ -80,22 +81,31 @@ ul li.router-link-active {
     cursor: pointer;
 }
 
-.changeBackgroundColor{
-  background-color: black !important;
+.changeBackgroundColor {
+    background-color: black !important;
 }
 
-@media screen and ( max-width: 768px){
-    #navbarSupportedContent{
+@media screen and (max-width: 768px) {
+    #navbarSupportedContent {
         background-color: white;
         border-radius: 25px;
     }
 
-    a{
+    a {
         color: black !important;
         text-align: center;
         margin: 2em;
         font-weight: bold;
         font-size: 1.5em;
+    }
+
+    #navbar {
+        background-color: transparent !important;
+    }
+
+    button {
+        color: black !important;
+        background-color: black;
     }
 }
 </style>
