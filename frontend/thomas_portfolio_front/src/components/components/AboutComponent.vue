@@ -1,10 +1,10 @@
 <template>
     <div class="container-fluid mt-2 mb-2">
         <div id="about" class="row">
-            <div class="col-lg-3">
+            <div class="col-md-5">
                 <img src="../../assets/ThomasBockhorn.jpg" alt="self image" />
             </div>
-            <div class="col-lg-9 mt-2">
+            <div class="col-sm-5 mt-2">
                 <h1>About Me</h1>
                 <hr />
                 <p>
@@ -47,6 +47,6 @@ export default {};
 <style scoped>
 img {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 </style>
