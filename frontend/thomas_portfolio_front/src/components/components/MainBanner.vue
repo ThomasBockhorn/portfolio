@@ -78,7 +78,7 @@ i {
     color: white;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 540px) {
     h2,
     #dropdownArrow {
         display: none;
