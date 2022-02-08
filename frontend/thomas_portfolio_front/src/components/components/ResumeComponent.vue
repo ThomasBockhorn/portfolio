@@ -1,8 +1,8 @@
 <template>
     <div id="resume" class="container mt-5">
         <div class="row">
-            <div class="col"><h1>Thomas Bockhorn</h1></div>
-            <div class="col">
+            <div class="col-md-12"><h1>Thomas Bockhorn</h1></div>
+            <div class="col-md-12">
                 <div>113 Sweet Hollow Way NW</div>
                 <div>Madison, AL 35757</div>
                 <div>Thomas.Bockhorn@tecktonet.com</div>
