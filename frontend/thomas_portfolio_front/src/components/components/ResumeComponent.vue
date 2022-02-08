@@ -45,7 +45,7 @@
                         challenge of building and improving websites.
                     </p>
                 </div>
-                <div class="mt-5"><h4>Wholefoods Market, Huntsville Alabama</h4></div>
+                <div class="mt-5"><h4>Whole Foods Market, Huntsville Alabama</h4></div>
                 <div><h5>November 2016 - Present</h5></div>
                 <div>
                     <p>
