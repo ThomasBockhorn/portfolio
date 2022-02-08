@@ -8,12 +8,12 @@
                 <div>Thomas.Bockhorn@tecktonet.com</div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-5">
             <div class="col"><h2>Full Stack Web Developer</h2></div>
         </div>
         <div class="row mt-5">
             <div class="col"></div>
-            <div class="col">
+            <div class="col-md-6">
                 <div class="row">
                     <div><h3>Skills</h3></div>
                     <div>
@@ -35,8 +35,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <div><h3>Experience</h3></div>
-                <div><h4>Full Stack Web Developer / Freelancer</h4></div>
+                <div class="mt-5"><h3>Experience</h3></div>
+                <div class="mt-5"><h4>Full Stack Web Developer / Freelancer</h4></div>
                 <div><h5>1/1/2019 - Present</h5></div>
                 <div>
                     <p>
@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col">
                 <div class="mt-5"><h3>Education</h3></div>
-                <div class="mt-3"><h4>Udacity - Core Java</h4></div>
+                <div class="mt-5"><h4>Udacity - Core Java</h4></div>
                 <div><p>2021</p></div>
                 <div class="mt-3"><h4>Udacity - Front-End Web Development</h4></div>
                 <div><p>2018</p></div>
@@ -83,7 +83,7 @@
         <div class="row">
             <div class="col">
                 <div class="mt-5"><h3>Projects</h3></div>
-                <div><p>See Github: <a href="https://github.com/ThomasBockhorn">https://github.com/ThomasBockhorn</a></p></div>
+                <div class="mt-3"><p>See Github: <a href="https://github.com/ThomasBockhorn">https://github.com/ThomasBockhorn</a></p></div>
             </div>
             <div class="col"></div>
         </div>
