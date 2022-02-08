@@ -1,8 +1,8 @@
 <template>
     <nav
         id="navbar"
-        class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bg-transparent"
-        :class="{ changeBackgroundColor: scrollPosition > 600 }"
+        class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top bg-transparent"
+        :class="{ changeBackgroundColor: scrollPosition > 60 }"
     >
         <div class="container">
             <a class="navbar-brand" href="#"></a>
@@ -18,7 +18,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <router-link
                             to="/home"
@@ -85,7 +85,7 @@ ul li.router-link-active {
     background-color: black !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 540px) {
     #navbarSupportedContent {
         background-color: white;
         border-radius: 25px;
@@ -97,15 +97,6 @@ ul li.router-link-active {
         margin: 2em;
         font-weight: bold;
         font-size: 1.5em;
-    }
-
-    #navbar {
-        background-color: transparent !important;
-    }
-
-    button {
-        color: black !important;
-        background-color: black;
     }
 }
 </style>
