@@ -24,6 +24,6 @@ export default {};
 
 <style scoped>
 footer {
-  height: 50px;
+  height: 4em;
 }
 </style>
