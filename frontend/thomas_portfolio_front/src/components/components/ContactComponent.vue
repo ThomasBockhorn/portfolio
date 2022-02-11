@@ -5,22 +5,14 @@
         <h3>Contact Form</h3>
       </div>
       <form class="row g-3">
-        <div class="col-md-6">
-          <label for="firstName" class="form-label">First Name</label>
+        <div class="col-md-12">
+          <label for="firstName" class="form-label">Name</label>
           <input
             type="text"
             class="form-control"
             id="firstName"
-            placeholder="Theodore"
-          />
-        </div>
-        <div class="col-md-6">
-          <label for="lastName" class="form-label">Last Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="lastName"
-            placeholder="Roosevelt"
+            placeholder="Theodore Roosevelt"
+            v-model="name"
           />
         </div>
         <div class="col-12">
@@ -45,7 +37,7 @@
           </div>
         </div>
         <div class="col-12 mb-5">
-          <button type="submit" class="btn btn-primary">Send</button>
+          <input type="submit" class="btn btn-primary" value="Send" @click="sendEmail"/>
         </div>
       </form>
     </div>
@@ -53,7 +45,34 @@
 </template>
 
 <script>
-export default {};
+import emailjs from 'emailjs-com';
+
+export default {
+    name: 'ContactUs',
+    data(){
+        return{
+           name: '',
+            email: '',
+            message: ''
+        }
+    },
+    methods: {
+        sendEmail(e){
+            try{
+                emailjs.sendForm('tecktonetMailService', 'template_sx0lr8w', e.target, 'tecktonetMail', {
+                    name: this.name,
+                    email: this.email,
+                    message: this.message
+                })
+            }catch(error){
+                console.log({error})
+            }
+            this.name = '',
+            this.email= '',
+            this.message= ''
+        },
+    }
+};
 </script>
 
 <style scoped>
