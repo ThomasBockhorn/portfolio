@@ -44,7 +44,7 @@
             <label for="message">Enter your message here</label>
           </div>
         </div>
-        <div class="col-12">
+        <div class="col-12 mb-5">
           <button type="submit" class="btn btn-primary">Send</button>
         </div>
       </form>
