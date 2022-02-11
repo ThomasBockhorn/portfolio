@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col"><h2>Full Stack Web Developer</h2></div>
+            <div class="col-md-12 text-center"><h2>Full Stack Web Developer</h2></div>
         </div>
         <div class="row mt-5">
             <div class="col"></div>
