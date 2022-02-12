@@ -14,6 +14,11 @@ export default {
         MainBanner,
         PortfolioComponent
     },
+     data(){
+        return{
+            location: "portfolio"
+        }
+    }
     
     
 };
