@@ -21,18 +21,20 @@
           class="d-flex flex-wrap overflow-auto justify-content-center"
           v-if="downLoadReady"
         >
-          <div v-for="project in projects" :key="project.id">
+          <div v-for="project in projects.slice(0,10)" :key="project.id">
             <Project :project="project"></Project>
           </div>
         </div>
       </div>
     </div>
+    <PaginationComponent></PaginationComponent>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import Project from "../components/projects/Project.vue";
+import PaginationComponent from "../components/pagination/PaginationComponent.vue";
 
 export default {
   data() {
@@ -44,6 +46,7 @@ export default {
   },
   components: {
     Project,
+    PaginationComponent
   },
   async mounted() {
     this.fetchData();
