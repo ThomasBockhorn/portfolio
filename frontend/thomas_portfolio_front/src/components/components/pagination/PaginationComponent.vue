@@ -6,8 +6,8 @@
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <button class="page-item page-link">1</button>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" @click="paginate(0, 10)">1</a></li>
+    <li class="page-item"><a class="page-link" @click="paginate(11, 20)">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
@@ -22,12 +22,18 @@
 export default {
     data(){
         return{
-            index: Number
+            index: Number,
+            range: Object
         }
     },
-    method:{
-        indexBetween(){
-            console.log("this works");
+    methods:{
+        paginate(x, y){
+           this.range = {
+               lowerPaginate: x,
+               upperPaginate: y
+           };
+
+           this.$emit('paginate',this.range);
         }
     }
 

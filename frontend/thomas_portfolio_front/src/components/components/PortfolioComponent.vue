@@ -21,13 +21,13 @@
           class="d-flex flex-wrap overflow-auto justify-content-center"
           v-if="downLoadReady"
         >
-          <div v-for="project in projects.slice(0,10)" :key="project.id">
+          <div v-for="project in projects.slice(lowerPaginate, upperPaginate)" :key="project.id">
             <Project :project="project"></Project>
           </div>
         </div>
       </div>
     </div>
-    <PaginationComponent></PaginationComponent>
+    <PaginationComponent @paginate="modifyByPaginate"></PaginationComponent>
   </div>
 </template>
 
@@ -42,6 +42,8 @@ export default {
       projects: [],
       downLoadReady: false,
       location: "portfolio",
+      lowerPaginate: 0,
+      upperPaginate: 10
     };
   },
   components: {
@@ -65,6 +67,11 @@ export default {
           this.downLoadReady = true;
         });
     },
+     modifyByPaginate(projectNumber){
+      this.lowerPaginate = projectNumber.lowerPaginate;
+      this.upperPaginate = projectNumber.upperPaginate;
+    }
+    
   },
 };
 </script>
