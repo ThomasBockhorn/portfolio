@@ -6,11 +6,20 @@
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-        <div v-for="index in group" :key="index">
-            <li class="page-item">
-        <a class="page-link" @click="paginate(start + ((index * 10) - 10), end + (index * 10))">{{ index }}</a>
-      </li>  
-        </div>
+      <div v-for="index in group" :key="index">
+        <li class="page-item">
+          <a
+            class="page-link"
+            @click="
+              paginate(
+                start + (index * numberPerGroups - numberPerGroups),
+                end + index * numberPerGroups
+              )
+            "
+            >{{ index }}</a
+          >
+        </li>
+      </div>
       <li class="page-item">
         <a class="page-link" href="#" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
@@ -30,9 +39,9 @@ export default {
       end: 0,
       length: 0,
       group: Number,
-      
+
       //number of projects per page
-       numberPerGroups: 10
+      numberPerGroups: 10,
     };
   },
   props: ["numberOfElements"],
@@ -50,11 +59,10 @@ export default {
       this.length = this.numberOfElements;
     },
     //Find the number of groups
-    numberOfGroups(){
+    numberOfGroups() {
+      let result = this.length / this.numberPerGroups;
 
-        let result = this.length / this.numberPerGroups
-
-        this.group = (Math.floor(result) >= 0 ? result : 1);
+      this.group = Math.floor(result) >= 0 ? result : 1;
     },
   },
   //this watches for a change in the length and group size
@@ -63,7 +71,7 @@ export default {
       this.init();
       this.numberOfGroups();
     },
-  }
+  },
 };
 </script>
 
