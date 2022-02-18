@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\guest;
 
 use App\Models\Project;
 use App\Http\Resources\ProjectResource;
+use App\Http\Resources\ProjectCollection;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
@@ -18,7 +19,7 @@ class ProjectGuestController extends BaseController
     public function index()
     {
         try {
-            return $this->sendResponse(ProjectResource::collection(Project::all()), 'Projects have been fetched');
+            return $this->sendResponse(new ProjectCollection(Project::paginate()), 200);
         } catch (\Exception $e) {
             throw new HttpException(500, $e->getMessage());
         }

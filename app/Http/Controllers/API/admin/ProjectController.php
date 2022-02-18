@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\admin;
 
 use App\Models\Project;
 use App\Http\Resources\ProjectResource;
+use App\Http\Resource\ProjectCollection;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Http\Requests\ProjectRequest;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -20,7 +21,7 @@ class ProjectController extends BaseController
     public function index()
     {
         try {
-            return $this->sendResponse(ProjectResource::collection(Project::all()), 'Projects have been fetched');
+            return $this->sendResponse(new ProjectCollection(Project::paginate()), 200);
         } catch (\Exception $e) {
             throw new HttpException(500, $e->getMessage());
         }
