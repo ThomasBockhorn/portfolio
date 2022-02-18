@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\admin;
 
 use App\Models\Project;
 use App\Http\Resources\ProjectResource;
-use App\Http\Resource\ProjectCollection;
+use App\Http\Resources\ProjectCollection;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Http\Requests\ProjectRequest;
 use Symfony\Component\HttpKernel\Exception\HttpException;
