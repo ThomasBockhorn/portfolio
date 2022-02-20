@@ -6,18 +6,9 @@
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <div v-for="index in group" :key="index">
+      <div v-for="page in totalPages" :key="page">
         <li class="page-item">
-          <a
-            class="page-link"
-            @click="
-              paginate(
-                start + (index * numberPerGroups - numberPerGroups),
-                end + index * numberPerGroups
-              )
-            "
-            >{{ index }}</a
-          >
+          <a class="page-link" @click="returnPage(page)">{{ page }}</a>
         </li>
       </div>
       <li class="page-item">
@@ -33,45 +24,14 @@
 export default {
   data() {
     return {
-      index: Number,
-      range: Object,
-      start: 0,
-      end: 0,
-      length: 0,
-      group: Number,
-
-      //number of projects per page
-      numberPerGroups: 10,
     };
   },
-  props: ["numberOfElements"],
-  methods: {
-    paginate(x, y) {
-      this.range = {
-        lowerPaginate: x,
-        upperPaginate: y,
-      };
-
-      this.$emit("paginate", this.range);
-    },
-    //creates the inital value of length
-    init() {
-      this.length = this.numberOfElements;
-    },
-    //Find the number of groups
-    numberOfGroups() {
-      let result = this.length / this.numberPerGroups;
-
-      this.group = Math.floor(result) >= 0 ? result : 1;
-    },
-  },
-  //this watches for a change in the length and group size
-  watch: {
-    numberOfElements: function () {
-      this.init();
-      this.numberOfGroups();
-    },
-  },
+  props: ['totalPages'],
+  methods:{
+    returnPage(page){
+      this.$emit('clicked', page);
+    }
+  }
 };
 </script>
 

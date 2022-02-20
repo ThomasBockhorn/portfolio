@@ -17,23 +17,14 @@
             </form>
           </div>
         </nav>
-        <div
-          class="d-flex flex-wrap overflow-auto justify-content-center"
-          v-if="downLoadReady"
-        >
-          <div
-            v-for="project in projects.slice(lowerPaginate, upperPaginate)"
-            :key="project.id"
-          >
+        <div class="d-flex flex-wrap overflow-auto justify-content-center">
+          <div v-for="project in projects" :key="project.id">
             <Project :project="project"></Project>
           </div>
         </div>
       </div>
     </div>
-    <PaginationComponent
-      @paginate="modifyByPaginate"
-      :numberOfElements="projects.length"
-    ></PaginationComponent>
+    <PaginationComponent :totalPages="totalPages" @clicked="getPage"></PaginationComponent>
   </div>
 </template>
 
@@ -46,10 +37,9 @@ export default {
   data() {
     return {
       projects: [],
-      downLoadReady: false,
       location: "portfolio",
-      lowerPaginate: 0,
-      upperPaginate: 10,
+      parsedMeta: {},
+      totalPages: 0,
     };
   },
   components: {
@@ -60,23 +50,28 @@ export default {
     this.fetchData();
   },
   methods: {
-    fetchData() {
+    fetchData(page = 1) {
       axios
-        .get("http://127.0.0.1:8000/api/guest/projects")
+        .get("http://127.0.0.1:8000/api/guest/projects?page=" + page)
         .then((response) => {
           this.projects = response.data.data.data;
+          this.fetchMeta(response.data.data.pagination);
         })
         .catch((e) => {
           console.log(e);
-        })
-        .finally(() => {
-          this.downLoadReady = true;
         });
     },
-    modifyByPaginate(projectNumber) {
-      this.lowerPaginate = projectNumber.lowerPaginate;
-      this.upperPaginate = projectNumber.upperPaginate;
+    fetchMeta(metaData) {
+      //This creates an object that holds the meta data
+      for (let index in metaData) {
+        this.parsedMeta[index] = metaData[index];
+      }
+      //gets the last page
+      this.totalPages = this.parsedMeta['last_page'];
     },
+    getPage(page){
+      this.fetchData(page);
+    }
   },
 };
 </script>
