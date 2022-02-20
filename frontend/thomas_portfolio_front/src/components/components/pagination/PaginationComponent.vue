@@ -8,7 +8,7 @@
       </li>
       <div v-for="page in totalPages" :key="page">
         <li class="page-item">
-          <a class="page-link" href="#" @click.prevent="returnPage(page)">{{ page }}</a>
+          <a class="page-link" href="#" :class="{inActive: !page}" @click.prevent="returnPage(page)">{{ page }}</a>
         </li>
       </div>
       <li class="page-item">
