@@ -2,17 +2,17 @@
   <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item">
-        <a class="page-link" @click="moveDown" aria-label="Previous">
+        <a class="page-link" @click.prevent="moveDown" href="#" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
       <div v-for="page in totalPages" :key="page">
         <li class="page-item">
-          <a class="page-link" @click="returnPage(page)">{{ page }}</a>
+          <a class="page-link" href="#" @click.prevent="returnPage(page)">{{ page }}</a>
         </li>
       </div>
       <li class="page-item">
-        <a class="page-link" @click="moveUp" aria-label="Next">
+        <a class="page-link" @click.prevent="moveUp" aria-label="Next" href="#">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
