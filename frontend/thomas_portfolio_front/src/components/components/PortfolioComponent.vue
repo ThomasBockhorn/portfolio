@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="portfolio">
-      <div class="container-fluid mt-5">
+      <div class="container-fluid">
         <nav class="navbar navbar-light bg-light">
           <div class="container-fluid">
             <form class="d-flex mt-3">
@@ -17,8 +17,8 @@
             </form>
           </div>
         </nav>
-        <div class="d-flex flex-wrap overflow-auto justify-content-center">
-          <div v-for="project in projects" :key="project.id">
+        <div class="d-flex flex-wrap overflow-auto justify-content-center mt-5">
+          <div v-for="project in projects" :key="project.id" class="m-2">
             <Project :project="project"></Project>
           </div>
         </div>
