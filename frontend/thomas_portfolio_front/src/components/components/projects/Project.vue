@@ -1,6 +1,6 @@
 <template>
   <div class="card h-100" style="width: 18rem">
-    <div class="card-header text-muted">Last Updated: 01/27/2022</div>
+    <div class="card-header text-muted">Last Updated: <time>{{ program.updated_at }}</time></div>
     <img src="../../../assets/testImage.jpg" class="card-img-top" alt />
     <div class="card-body">
       <h5 class="card-title">{{ program.title }}</h5>

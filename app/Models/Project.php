@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Project extends Model
 {
@@ -56,5 +57,27 @@ class Project extends Model
     public function setDescriptionAttribute($value)
     {
         $this->attributes['description'] = strip_tags($value);
+    }
+
+    /**
+     * This will format the date for created at
+     * 
+     * @param string $date
+     * @return $date
+     */
+    public function getCreatedAtAttribute($date)
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m-d-Y');
+    }
+
+    /**
+     * This will format the date for updated at
+     *
+     * @param string $date
+     * @return $date
+     */
+    public function getUpdatedAtAttribute($date)
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m-d-Y');
     }
 }
