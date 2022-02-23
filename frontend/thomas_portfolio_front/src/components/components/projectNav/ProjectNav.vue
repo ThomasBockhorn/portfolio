@@ -12,17 +12,36 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <div class="d-flex">
-          <button id="edit">
+          <button id="edit" @click="showModal">
             <i class="fas fa-edit"></i>
           </button>
         </div>
       </div>
     </nav>
+    <Modal v-show="isModalVisible" @close="closeModal"/>
   </div>
 </template>
 
 <script>
-export default {};
+import Modal from "../modal/Modal.vue";
+export default {
+    components:{
+        Modal
+    },
+    data(){
+        return{
+            isModalVisible: true
+        }
+    },
+    methods:{
+        showModal(){
+            this.isModalVisible = true;
+        },
+        closeModal(){
+            this.isModalVisible = false;
+        }
+    }
+};
 </script>
 
 <style scoped>
