@@ -2,26 +2,7 @@
   <div>
     <div id="portfolio">
       <div class="container-fluid">
-        <nav class="navbar navbar-light bg-light">
-          <div class="container-fluid">
-            <form class="d-flex mt-3">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Project"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-            <div class="d-flex">
-              <button id="edit">
-                <i class="fas fa-edit"></i>
-              </button>
-            </div>
-          </div>
-        </nav>
+        <ProjectNav></ProjectNav>
         <div class="d-flex flex-wrap overflow-auto justify-content-center mt-5">
           <div v-for="project in projects" :key="project.id" class="m-2">
             <Project :project="project"></Project>
@@ -40,6 +21,7 @@
 import axios from "axios";
 import Project from "../components/projects/Project.vue";
 import PaginationComponent from "../components/pagination/PaginationComponent.vue";
+import ProjectNav from "../components/projectNav/ProjectNav.vue";
 
 export default {
   data() {
@@ -53,6 +35,7 @@ export default {
   components: {
     Project,
     PaginationComponent,
+    ProjectNav
   },
   async mounted() {
     this.fetchData();
@@ -85,9 +68,5 @@ export default {
 </script>
 
 <style scoped>
-#edit {
-  width: 100px;
-  border: none;
-  background: transparent;
-}
+
 </style>
