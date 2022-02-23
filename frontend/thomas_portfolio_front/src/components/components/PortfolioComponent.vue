@@ -15,6 +15,11 @@
                 Search
               </button>
             </form>
+            <div class="d-flex">
+              <button id="edit">
+                <i class="fas fa-edit"></i>
+              </button>
+            </div>
           </div>
         </nav>
         <div class="d-flex flex-wrap overflow-auto justify-content-center mt-5">
@@ -24,7 +29,10 @@
         </div>
       </div>
     </div>
-    <PaginationComponent :totalPages="totalPages" @clicked="getPage"></PaginationComponent>
+    <PaginationComponent
+      :totalPages="totalPages"
+      @clicked="getPage"
+    ></PaginationComponent>
   </div>
 </template>
 
@@ -67,14 +75,19 @@ export default {
         this.parsedMeta[index] = metaData[index];
       }
       //gets the last page
-      this.totalPages = this.parsedMeta['last_page'];
+      this.totalPages = this.parsedMeta["last_page"];
     },
-    getPage(page){
+    getPage(page) {
       this.fetchData(page);
-    }
+    },
   },
 };
 </script>
 
 <style scoped>
+#edit {
+  width: 100px;
+  border: none;
+  background: transparent;
+}
 </style>
