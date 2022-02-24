@@ -18,8 +18,9 @@
         </div>
       </div>
     </nav>
-
-    <Modal v-if="isModalVisible" @close="closeModal" />
+    <transition name="modal-fade">
+      <Modal v-if="isModalVisible" @close="closeModal" />
+    </transition>
   </div>
 </template>
 
@@ -31,7 +32,7 @@ export default {
   },
   data() {
     return {
-      isModalVisible: true,
+      isModalVisible: false,
     };
   },
   methods: {
@@ -50,5 +51,15 @@ export default {
   width: 100px;
   border: none;
   background: transparent;
+}
+
+.modal-fade-enter,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 </style>
