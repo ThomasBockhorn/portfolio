@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+          <h5 class="modal-title">Login</h5>
           <button
             type="button"
             class="btn-close"
@@ -13,7 +13,7 @@
           ></button>
         </div>
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
+          <LoginForm></LoginForm>
         </div>
         <div class="modal-footer">
           <button
@@ -24,7 +24,6 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -32,8 +31,13 @@
 </template>
 
 <script>
+import LoginForm from "../login/LoginComponent.vue";
+
 export default {
   name: "Modal",
+  components:{
+    LoginForm
+  },
   methods: {
     close() {
       this.$emit("close");
