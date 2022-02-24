@@ -1,34 +1,56 @@
 <template>
   <div>
-    <form>
-      <div class="mb-3">
-        <label for="InputEmail1" class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="InputEmail1"
-          aria-describedby="emailHelp"
-        />
-        <div id="emailHelp" class="form-text">
-          We'll never share your email with anyone else.
-        </div>
+    <transition name="form-fade">
+      <div>
+        <LoginForm v-if="login"></LoginForm>
+        <RegistrationForm v-if="registration"></RegistrationForm>
       </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="exampleInputPassword1"
-        />
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </transition>
+    <div class="modal-footer">
+      <button class="btn btn-primary" @click="showLogin">Login</button>
+      <button class="btn btn-secondary" @click="showRegistration">
+        Registration
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import LoginForm from "../login/login-form/LoginForm.vue";
+import RegistrationForm from "../login/registration-form/RegistrationForm.vue";
+
+export default {
+  data() {
+    return {
+      registration: false,
+      login: true,
+    };
+  },
+  components: {
+    LoginForm,
+    RegistrationForm,
+  },
+  methods: {
+    showRegistration() {
+      this.registration = true;
+      this.login = false;
+    },
+    showLogin() {
+      this.registration = false;
+      this.login = true;
+    },
+  },
+};
 </script>
 
-<style>
+<style scoped>
+.form-fade-enter,
+.form-fade-leave-to {
+  opacity: 0;
+}
+
+.form-fade-enter-active,
+.form-fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 </style>
