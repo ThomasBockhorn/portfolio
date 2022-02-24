@@ -18,29 +18,30 @@
         </div>
       </div>
     </nav>
-    <Modal v-show="isModalVisible" @close="closeModal"/>
+
+    <Modal v-if="isModalVisible" @close="closeModal" />
   </div>
 </template>
 
 <script>
 import Modal from "../modal/Modal.vue";
 export default {
-    components:{
-        Modal
+  components: {
+    Modal,
+  },
+  data() {
+    return {
+      isModalVisible: true,
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
     },
-    data(){
-        return{
-            isModalVisible: true
-        }
+    closeModal() {
+      this.isModalVisible = false;
     },
-    methods:{
-        showModal(){
-            this.isModalVisible = true;
-        },
-        closeModal(){
-            this.isModalVisible = false;
-        }
-    }
+  },
 };
 </script>
 
