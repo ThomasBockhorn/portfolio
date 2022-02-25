@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\admin\ProjectController;
 use App\Http\Controllers\Api\guest\ProjectGuestController;
-use App\Http\Controllers\API\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,9 @@ use App\Http\Controllers\API\RegisterController;
 |
 */
 
-Route::post('register', [RegisterController::class, 'register'])->name('register');
-Route::post('login', [RegisterController::class, 'login'])->name('login');
+Route::post('login', [UserController::class, 'login']);
+Route::post('register', [UserController::class, 'register']);
+Route::post('logout', [UserController::class, 'logout'])->middleware('auth:sanctum');
 
 //admin routes
 Route::middleware('auth:sanctum')->group(function () {

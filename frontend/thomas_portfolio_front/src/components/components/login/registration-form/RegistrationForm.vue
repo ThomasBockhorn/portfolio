@@ -17,9 +17,6 @@
         id="VerifyEmail1"
         aria-describedby="verify-email"
       />
-      <div id="email" class="form-text">
-        We'll never share your email with anyone else.
-      </div>
     </div>
     <div class="mb-3">
       <label for="InputPassword" class="form-label">Password</label>
