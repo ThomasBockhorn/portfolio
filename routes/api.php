@@ -1,8 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\admin\ProjectController;
 use App\Http\Controllers\Api\guest\ProjectGuestController;
 
@@ -19,11 +19,14 @@ use App\Http\Controllers\Api\guest\ProjectGuestController;
 
 Route::post('login', [UserController::class, 'login']);
 Route::post('register', [UserController::class, 'register']);
-Route::post('logout', [UserController::class, 'logout'])->middleware('auth:sanctum');
 
 //admin routes
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('admin/projects', ProjectController::class)->middleware('XSS');
+    Route::post('logout', [UserController::class, 'logout']);
+    Route::get('/me', function(Request $request){
+        return auth()->user();
+    });
 });
 
 //guest routes

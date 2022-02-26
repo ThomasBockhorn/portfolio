@@ -3,15 +3,17 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\User;
+use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Session;
+use Illuminate\Database\QueryException;
 
 
 class UserController extends Controller
 {
+
+    use ApiResponse;
 
     /**
      * Register a user
@@ -21,27 +23,25 @@ class UserController extends Controller
      */
     public function register(Request $request)
     {
+        $response = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string|min:6'
+        ]);
+
         try {
-            $user = new User();
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = Hash::make($request->password);
-            $user->save();
+            $user = User::create([
+                'name' => $response['name'],
+                'password' => bcrypt($response['password']),
+                'email' => $response['email']
+            ]);
 
-            $success = true;
-            $message = 'User register successfully';
-        } catch (\Illuminate\Database\QueryException $ex) {
-            $success = false;
-            $message = $ex->getMessage();
+            return $this->success([
+                'token' => $user->createToken('API Token')->plainTextToken
+            ]);
+        } catch (QueryException $ex) {
+            return $this->error('unable to create a new user', 404);
         }
-
-        // response
-        $response = [
-            'success' => $success,
-            'message' => $message,
-            'token' => $user->createToken('tokens')->plainTextToken
-        ];
-        return response()->json($response);
     }
 
     /**
@@ -52,50 +52,28 @@ class UserController extends Controller
      */
     public function login(Request $request)
     {
-        $credentials = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
 
-        if (Auth::attempt($credentials)) {
-            $success = true;
-            $message = 'User login successfully';
-        } else {
-            $success = false;
-            $message = 'Unauthorised';
+        $response = $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string|min:6'
+        ]);
+
+        try {
+            if (Auth::attempt($response)) {
+                return $this->success([
+                    'token' => Auth()->user()->createToken('API Token')->plainTextToken
+                ]);
+            }
+        } catch (QueryException $ex) {
+            return $this->error('Credentials do not match', 401);
         }
-
-        $user = User::where('email', $credentials['email'])->firstOrFail();
-
-        $token = $user->createToken('authToken')->plainTextToken;
-
-        // response
-        $response = [
-            'success' => $success,
-            'message' => $message,
-            'token' => $token
-
-        ];
-        return response()->json($response);
     }
 
     public function logout()
     {
-        try {
-            auth()->guard('web')->logout();
-            $success = true;
-            $message = 'Logged out successfully';
-        } catch (\Illuminate\Database\QueryException $ex) {
-            $success = false;
-            $message = $ex->getMessage();
-        }
-
-        //Response
-        $response = [
-            'success' => $success,
-            'message' => $message,
+        auth()->user()->tokens()->delete();
+        return [
+            'message' => 'Tokens Revoked'
         ];
-
-        return response()->json($response);
     }
 }
