@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Login</h5>
+          <h5 class="modal-title">{{ title }}</h5>
           <button
             type="button"
             class="btn-close"
@@ -13,7 +13,7 @@
           ></button>
         </div>
         <div class="modal-body">
-          <LoginForm></LoginForm>
+          <LoginForm @clicked="nameOfForm"></LoginForm>
         </div>
       </div>
     </div>
@@ -28,10 +28,18 @@ export default {
   components:{
     LoginForm
   },
+  data(){
+    return{
+      title: 'Login'
+    }
+  },
   methods: {
     close() {
       this.$emit("close");
     },
+    nameOfForm(formName){
+      this.title = formName;
+    }
   },
 };
 </script>

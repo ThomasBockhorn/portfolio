@@ -24,6 +24,7 @@ export default {
     return {
       registration: false,
       login: true,
+      nameOfForm: String
     };
   },
   components: {
@@ -34,10 +35,14 @@ export default {
     showRegistration() {
       this.registration = true;
       this.login = false;
+      this.nameOfForm = 'Register';
+      this.$emit('clicked', this.nameOfForm);
     },
     showLogin() {
       this.registration = false;
       this.login = true;
+      this.nameOfForm = 'Login';
+      this.$emit('clicked', this.nameOfForm);
     },
   },
 };
