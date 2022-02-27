@@ -76,9 +76,10 @@ export default {
 </script>
 
 <style scoped>
-ul li.router-link-active {
+ul, li,  li.router-link {
     color: white !important;
     cursor: pointer;
+    font-family: 'Libre Baskerville', serif;
 }
 
 .changeBackgroundColor {
@@ -97,6 +98,7 @@ ul li.router-link-active {
         margin: 2em;
         font-weight: bold;
         font-size: 1.5em;
+        font-family: 'Libre Baskerville', serif;
     }
 }
 </style>
