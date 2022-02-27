@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar">
       <div class="container-fluid">
         <form class="d-flex mt-3">
           <input
@@ -61,5 +61,9 @@ export default {
 .modal-fade-enter-active,
 .modal-fade-leave-active {
   transition: opacity 0.5s ease;
+}
+
+i{
+  color: white;
 }
 </style>

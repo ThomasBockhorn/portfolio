@@ -68,5 +68,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .container-fluid{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,119,255,1) 51%, rgba(40,34,100,1) 100%);
+  }
 </style>
