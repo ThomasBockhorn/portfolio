@@ -49,4 +49,13 @@ img {
     width: 100%;
     height: auto;
 }
+
+h1, p{
+    color: white;
+  font-family: 'Libre Baskerville', serif;
+}
+
+hr{
+    color: white;
+}
 </style>

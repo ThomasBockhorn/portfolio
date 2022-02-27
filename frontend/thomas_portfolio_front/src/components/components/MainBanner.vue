@@ -63,6 +63,7 @@ export default {
 h1,
 h2 {
     color: white;
+    font-family: 'Libre Baskerville', serif;
 }
 
 h2 {

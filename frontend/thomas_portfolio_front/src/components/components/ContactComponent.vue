@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="col-12 mb-5">
-          <input type="submit" class="btn btn-primary" value="Send" @click="sendEmail"/>
+          <input type="submit" class="btn btn-outline-light" value="Send" @click="sendEmail"/>
         </div>
       </form>
     </div>
@@ -76,4 +76,8 @@ export default {
 </script>
 
 <style scoped>
+label, h3{
+  font-family: 'Libre Baskerville', serif;
+  color: white;
+}
 </style>
