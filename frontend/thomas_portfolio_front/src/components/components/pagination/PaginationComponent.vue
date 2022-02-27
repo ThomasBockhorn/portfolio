@@ -63,13 +63,13 @@ export default {
 </script>
 
 <style scoped>
-nav {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(40, 97, 123, 1) 51%,
-    rgba(40, 34, 100, 1) 100%
-  );
+
+.pagination a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: transparent;
+  border-color: transparent;
 }
 </style>

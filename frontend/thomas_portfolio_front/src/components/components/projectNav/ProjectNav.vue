@@ -9,7 +9,7 @@
             placeholder="Project"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
         <div class="d-flex">
           <button id="edit" @click="showModal">

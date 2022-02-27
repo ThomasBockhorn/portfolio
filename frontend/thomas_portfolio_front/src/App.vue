@@ -41,4 +41,8 @@ export default {
 .fade-enter, .fade-leave-active {
   opacity: 0
 }
+
+.main{
+  background: rgb(13,116,189);
+}
 </style>

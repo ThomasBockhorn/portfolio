@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="mainPortfolio">
         <MainBanner v-bind:mainComponentName="this.location"></MainBanner>
         <PortfolioComponent></PortfolioComponent>
     </div>
@@ -24,4 +24,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+#mainPortfolio{
+    background: rgb(13,116,189);
+}
+</style>

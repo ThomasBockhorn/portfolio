@@ -20,7 +20,7 @@ export default {};
 </script>
 
 <style scoped>
-footer {
-  height: 4em;
-}
+  footer{
+    height: 4em;
+  }
 </style>

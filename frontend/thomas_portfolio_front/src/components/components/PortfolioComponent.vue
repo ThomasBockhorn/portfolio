@@ -69,12 +69,6 @@ export default {
 
 <style scoped>
 .container-fluid {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(40, 97, 123, 1) 51%,
-    rgba(40, 34, 100, 1) 100%
-  );
+  height: 100%;
 }
 </style>
