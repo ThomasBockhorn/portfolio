@@ -27,4 +27,8 @@ export default {
 .card {
   margin: 2px;
 }
+
+h5, p, time{
+  font-family: 'Libre Baskerville', serif;
+}
 </style>
