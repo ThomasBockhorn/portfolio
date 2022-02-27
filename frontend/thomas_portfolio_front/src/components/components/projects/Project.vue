@@ -7,7 +7,7 @@
       <p class="card-text">{{ program.description }}</p>
     </div>
     <div class="card-footer">
-      <a href="#" class="btn rounded-pill">Go</a>
+      <a href="#" class="btn btn-outline-success">Go</a>
     </div>
   </div>
 </template>
@@ -26,10 +26,5 @@ export default {
 <style scoped>
 .card {
   margin: 2px;
-}
-
-a{
-  background-color: #8DC133;
-  color: white;
 }
 </style>
