@@ -1,13 +1,13 @@
 <template>
-    <main class="main">
-        <Header v-if="$route.meta.header != false"/>  
-        <router-view v-slot="{ Component }">
-          <transition name="fade" mode="out-in" @before-enter="scrollTop">
-              <component :is="Component" />
-          </transition>
-        </router-view>
-        <Footer v-if="$route.meta.header != false"/>
-    </main>
+  <main class="main">
+    <Header v-if="$route.meta.header != false" />
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in" @before-enter="scrollTop">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+    <Footer v-if="$route.meta.header != false" />
+  </main>
 </template>
 
 <script>
@@ -15,34 +15,41 @@ import Header from "./components/components/headerFooter/Header.vue";
 import Footer from "./components/components/headerFooter/Footer.vue";
 
 export default {
-    name: "App",
-    components: {
-        Header,
-        Footer
+  name: "App",
+  components: {
+    Header,
+    Footer,
+  },
+  methods: {
+    scrollTop() {
+      document.getElementById("app").scrollIntoView();
     },
-    methods:{
-      scrollTop(){
-        document.getElementById('app').scrollIntoView()
-      }
-    }
+  },
 };
 </script>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition-property: opacity;
-  transition-duration: .25s;
+  transition-duration: 0.25s;
 }
 
 .fade-enter-active {
-  transition-delay: .25s;
+  transition-delay: 0.25s;
 }
 
-.fade-enter, .fade-leave-active {
-  opacity: 0
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 
-.main{
-  background: rgb(36,142,200)
+.main {
+  background: rgb(16, 125, 133);
+  background: linear-gradient(
+    180deg,
+    rgba(16, 125, 133, 1) 15%,
+    rgba(40, 34, 100, 1) 100%
+  );
 }
 </style>
