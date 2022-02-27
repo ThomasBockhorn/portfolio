@@ -15,7 +15,7 @@
           </div>
           <div class="modal-body">Are you sure you want to Exit?</div>
           <div class="modal-footer">
-            <button class="btn btn-warning">Yes</button>
+            <button class="btn btn-danger">Yes</button>
             <button class="btn btn-primary" @click="close">No</button>
           </div>
         </div>
