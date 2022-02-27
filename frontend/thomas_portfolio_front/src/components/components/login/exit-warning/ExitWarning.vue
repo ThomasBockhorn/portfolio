@@ -4,7 +4,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Exit</h5>
+            <h5 class="modal-title"></h5>
             <button
               type="button"
               class="btn-close"
@@ -15,8 +15,8 @@
           </div>
           <div class="modal-body text-center">Are you sure you want to Exit?</div>
           <div class="modal-footer">
-            <button class="btn btn-danger">Yes</button>
-            <button class="btn btn-primary" @click="close">No</button>
+            <button class="btn btn-outline-dark">Yes</button>
+            <button class="btn btn-outline-dark" @click="close">No</button>
           </div>
         </div>
       </div>
@@ -49,5 +49,13 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.modal-header{
+    border-bottom: 0 none;
+}
+
+.modal-footer{
+    border-top: 0 none;
 }
 </style>

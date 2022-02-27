@@ -5,11 +5,11 @@
         <RegistrationForm v-if="registration"></RegistrationForm>
       </div>
     <div class="modal-footer">
-      <button class="btn btn-primary" @click="showLogin">Login</button>
-      <button class="btn btn-secondary" @click="showRegistration">
+      <button class="btn btn-outline-dark" @click="showLogin">Login</button>
+      <button class="btn btn-outline-dark" @click="showRegistration">
         Registration
       </button>
-      <button class="btn btn-danger" @click="showExit">Exit</button>
+      <button class="btn btn-outline-dark" @click="showExit">Exit</button>
     </div>
     <ExitWarning v-if="isExitVisible" @close="closeExit"></ExitWarning>
   </div>
