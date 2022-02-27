@@ -5,7 +5,7 @@
         <h3>Contact Form</h3>
       </div>
       <form class="row g-3">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <label for="firstName" class="form-label">Name</label>
           <input
             type="text"
@@ -15,7 +15,7 @@
             v-model="name"
           />
         </div>
-        <div class="col-12">
+        <div class="col-md-6">
           <label for="email" class="form-label">Email</label>
           <input
             type="email"
@@ -24,14 +24,14 @@
             placeholder="Theodore.Roosevelt@Bully.com"
           />
         </div>
-        <div class="col-12">
+        <div class="col-md-12">
           <label for="message" class="form-label">Message</label>
           <div class="form-floating">
             <textarea
               class="form-control"
               placeholder="Leave a comment here"
               id="message"
-              style="height: 100px"
+              style="height: 150px"
             ></textarea>
             <label for="message">Enter your message here</label>
           </div>
