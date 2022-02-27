@@ -25,7 +25,5 @@ export default {
 </script>
 
 <style scoped>
-#mainPortfolio{
-    background: rgb(13,116,189);
-}
+
 </style>

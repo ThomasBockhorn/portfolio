@@ -43,6 +43,6 @@ export default {
 }
 
 .main{
-  background: rgb(13,116,189);
+  background: rgb(36,142,200)
 }
 </style>

@@ -116,4 +116,9 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style scoped>
+h1,div,h2,h3,h4,p, a{
+  color: white;
+  font-family: 'Libre Baskerville', serif;
+}
+</style>
