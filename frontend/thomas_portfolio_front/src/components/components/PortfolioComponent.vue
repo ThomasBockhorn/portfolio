@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="portfolio">
-      <div class="container-fluid">
+      <div class="container-fluid border-top">
         <ProjectNav></ProjectNav>
         <div class="d-flex flex-wrap overflow-auto justify-content-center mt-5">
           <div v-for="project in projects" :key="project.id" class="m-2">
@@ -35,7 +35,7 @@ export default {
   components: {
     Project,
     PaginationComponent,
-    ProjectNav
+    ProjectNav,
   },
   async mounted() {
     this.fetchData();
@@ -68,8 +68,13 @@ export default {
 </script>
 
 <style scoped>
-  .container-fluid{
-    background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,119,255,1) 51%, rgba(40,34,100,1) 100%);
-  }
+.container-fluid {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(40, 97, 123, 1) 51%,
+    rgba(40, 34, 100, 1) 100%
+  );
+}
 </style>
