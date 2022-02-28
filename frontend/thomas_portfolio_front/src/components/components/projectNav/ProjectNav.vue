@@ -6,8 +6,8 @@
           <input
             class="form-control me-2"
             type="search"
-            placeholder="Project"
-            aria-label="Search"
+            placeholder="Project Title"
+            aria-label="Search Title"
           />
           <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
