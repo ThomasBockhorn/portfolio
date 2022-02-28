@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="portfolio">
-      <div class="container-fluid">
+      <div class="container-fluid mt-5">
         <ProjectNav></ProjectNav>
         <div class="d-flex flex-wrap overflow-auto justify-content-center mt-5">
           <div v-for="project in projects" :key="project.id" class="m-2">
