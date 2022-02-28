@@ -49,7 +49,7 @@ export default {
   background: linear-gradient(
     180deg,
     rgba(51, 132, 221, 1) 17%,
-    rgba(35, 92, 154, 1) 100%
+    rgba(39, 56, 115, 1) 100%
   );
 }
 </style>
