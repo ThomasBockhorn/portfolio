@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid mt-2 mb-2">
-        <div id="about" class="row">
+        <div id="about" class="row mt-5">
             <div class="col-md-5">
                 <img src="../../assets/ThomasBockhorn.jpg" alt="self image" />
             </div>
