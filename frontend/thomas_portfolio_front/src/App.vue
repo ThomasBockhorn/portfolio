@@ -45,11 +45,11 @@ export default {
 }
 
 .main {
-  background: rgb(16, 125, 133);
+  background: rgb(51, 132, 221);
   background: linear-gradient(
     180deg,
-    rgba(16, 125, 133, 1) 15%,
-    rgba(40, 34, 100, 1) 100%
+    rgba(51, 132, 221, 1) 17%,
+    rgba(35, 92, 154, 1) 100%
   );
 }
 </style>
