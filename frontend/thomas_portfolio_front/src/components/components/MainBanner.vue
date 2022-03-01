@@ -74,7 +74,7 @@ img {
 }
 
 i {
-  color: white;
+  color: rgb(161, 7, 7);
 }
 
 .light {
