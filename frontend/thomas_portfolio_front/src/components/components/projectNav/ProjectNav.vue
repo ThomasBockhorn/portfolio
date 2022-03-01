@@ -2,15 +2,6 @@
   <div>
     <nav class="navbar">
       <div class="container-fluid">
-        <form class="d-flex mt-3">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Project Title"
-            aria-label="Search Title"
-          />
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
         <div class="d-flex">
           <button id="edit" @click="showModal">
             <i class="fas fa-edit"></i>
