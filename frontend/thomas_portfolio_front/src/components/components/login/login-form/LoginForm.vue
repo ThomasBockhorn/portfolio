@@ -48,7 +48,7 @@ export default {
           password: this.password,
         })
         .then((response) => {
-          console.log(response.data.data.token);
+            this.$emit("successful", response.data.data.token);
         })
         .catch((error) => {
           console.log("Error: ", error.response.data.data);

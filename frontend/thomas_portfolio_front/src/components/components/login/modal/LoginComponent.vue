@@ -1,8 +1,11 @@
 <template>
   <div>
     <div>
-      <LoginForm v-if="login"></LoginForm>
-      <RegistrationForm v-if="registration" @backToLogin="showLogin"></RegistrationForm>
+      <LoginForm v-if="login" @successful="launchCrud"></LoginForm>
+      <RegistrationForm
+        v-if="registration"
+        @backToLogin="showLogin"
+      ></RegistrationForm>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline-dark" @click="showLogin">Login</button>
@@ -18,6 +21,7 @@
         @closeModel="closeModel"
       ></ExitWarning>
     </transition>
+     <CrudModal v-if="successfulLogin" @close="closeCrud"></CrudModal>
   </div>
 </template>
 
@@ -25,6 +29,7 @@
 import LoginForm from "../login-form/LoginForm.vue";
 import RegistrationForm from "../registration-form/RegistrationForm.vue";
 import ExitWarning from "../exit-warning/ExitWarning.vue";
+import CrudModal from "../../crudModal/modal.vue";
 
 export default {
   data() {
@@ -33,12 +38,14 @@ export default {
       login: true,
       isExitVisible: false,
       nameOfForm: String,
+      successfulLogin: false,
     };
   },
   components: {
     LoginForm,
     RegistrationForm,
     ExitWarning,
+    CrudModal,
   },
   methods: {
     showRegistration() {
@@ -62,6 +69,14 @@ export default {
     closeModel() {
       this.$emit("closeModel");
     },
+    launchCrud(token) {
+      if (token != 0) {
+        this.successfulLogin = true;
+      }
+    },
+    closeCrud(){
+      this.successfulLogin = false;
+    }
   },
 };
 </script>
