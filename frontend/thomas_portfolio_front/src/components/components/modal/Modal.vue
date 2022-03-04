@@ -13,7 +13,12 @@
           ></button>
         </div>
         <div class="modal-body">
-          <LoginForm @clicked="nameOfForm" @closeModel="closeModel"></LoginForm>
+          <transition name="modal-fade">
+            <LoginForm
+              @clicked="nameOfForm"
+              @closeModel="closeModel"
+            ></LoginForm>
+          </transition>
         </div>
       </div>
     </div>
@@ -25,24 +30,24 @@ import LoginForm from "../login/LoginComponent.vue";
 
 export default {
   name: "Modal",
-  components:{
-    LoginForm
+  components: {
+    LoginForm,
   },
-  data(){
-    return{
-      title: 'Login'
-    }
+  data() {
+    return {
+      title: "Login",
+    };
   },
   methods: {
     close() {
       this.$emit("close");
     },
-    nameOfForm(formName){
+    nameOfForm(formName) {
       this.title = formName;
     },
-    closeModel(){
+    closeModel() {
       this.$emit("close");
-    }
+    },
   },
 };
 </script>
@@ -50,5 +55,15 @@ export default {
 <style scoped>
 .modal {
   display: block;
+}
+
+.modal-fade-enter,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 </style>
