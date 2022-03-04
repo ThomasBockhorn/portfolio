@@ -13,7 +13,7 @@
           ></button>
         </div>
         <div class="modal-body">
-          <LoginForm @clicked="nameOfForm"></LoginForm>
+          <LoginForm @clicked="nameOfForm" @closeModel="closeModel"></LoginForm>
         </div>
       </div>
     </div>
@@ -39,6 +39,9 @@ export default {
     },
     nameOfForm(formName){
       this.title = formName;
+    },
+    closeModel(){
+      this.$emit("close");
     }
   },
 };

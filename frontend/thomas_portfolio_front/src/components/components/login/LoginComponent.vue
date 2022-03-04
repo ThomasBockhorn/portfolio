@@ -11,7 +11,7 @@
       </button>
       <button class="btn btn-outline-dark" @click="showExit">Exit</button>
     </div>
-    <ExitWarning v-if="isExitVisible" @close="closeExit"></ExitWarning>
+    <ExitWarning v-if="isExitVisible" @close="closeExit" @closeModel="closeModel"></ExitWarning>
   </div>
 </template>
 
@@ -19,6 +19,7 @@
 import LoginForm from "../login/login-form/LoginForm.vue";
 import RegistrationForm from "../login/registration-form/RegistrationForm.vue";
 import ExitWarning from "../login/exit-warning/ExitWarning.vue";
+
 
 export default {
   data() {
@@ -52,6 +53,9 @@ export default {
     },
     closeExit(){
       this.isExitVisible = false;
+    },
+    closeModel(){
+      this.$emit('closeModel');
     }
   },
 };

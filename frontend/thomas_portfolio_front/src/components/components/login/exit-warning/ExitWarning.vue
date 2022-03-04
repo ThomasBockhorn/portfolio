@@ -15,7 +15,7 @@
           </div>
           <div class="modal-body text-center">Are you sure you want to Exit?</div>
           <div class="modal-footer">
-            <button class="btn btn-outline-dark">Yes</button>
+            <button class="btn btn-outline-dark" @click="exit">Yes</button>
             <button class="btn btn-outline-dark" @click="close">No</button>
           </div>
         </div>
@@ -30,6 +30,9 @@ export default {
     close() {
       this.$emit("close");
     },
+    exit(){
+      this.$emit("closeModel");
+    }
   },
 };
 </script>
