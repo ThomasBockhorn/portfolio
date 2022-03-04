@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import LoginForm from "../login/login-form/LoginForm.vue";
-import RegistrationForm from "../login/registration-form/RegistrationForm.vue";
-import ExitWarning from "../login/exit-warning/ExitWarning.vue";
+import LoginForm from "../login-form/LoginForm.vue";
+import RegistrationForm from "../registration-form/RegistrationForm.vue";
+import ExitWarning from "../exit-warning/ExitWarning.vue";
 
 export default {
   data() {

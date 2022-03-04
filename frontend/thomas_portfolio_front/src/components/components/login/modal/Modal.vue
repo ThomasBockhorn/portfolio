@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import LoginForm from "../login/LoginComponent.vue";
+import LoginForm from "../modal/LoginComponent.vue";
 
 export default {
   name: "Modal",
