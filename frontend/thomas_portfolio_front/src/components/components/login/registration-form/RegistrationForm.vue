@@ -73,6 +73,7 @@ export default {
         .catch((error) => {
           console.log("Error: ", error.response.data.data);
         });
+        this.$emit("backToLogin");
     },
   },
 };

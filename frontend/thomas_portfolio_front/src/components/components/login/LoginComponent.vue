@@ -2,7 +2,7 @@
   <div>
     <div>
       <LoginForm v-if="login"></LoginForm>
-      <RegistrationForm v-if="registration"></RegistrationForm>
+      <RegistrationForm v-if="registration" @backToLogin="showLogin"></RegistrationForm>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline-dark" @click="showLogin">Login</button>
