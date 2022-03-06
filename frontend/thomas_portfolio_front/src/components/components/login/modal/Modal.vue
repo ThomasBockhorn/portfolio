@@ -28,6 +28,9 @@
 <script>
 import LoginComponent from "../modal/LoginComponent.vue";
 
+/**
+ * This is the main modal component.  It's child is the LoginComponent
+ */
 export default {
   name: "Modal",
   components: {
@@ -42,6 +45,12 @@ export default {
     close() {
       this.$emit("close");
     },
+    /**
+     * This function changes the name of the form depending on what the form is present
+     *
+     * @param {String} formName 
+     * @return void
+     */
     nameOfForm(formName) {
       this.title = formName;
     },
