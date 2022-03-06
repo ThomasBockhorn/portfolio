@@ -62,6 +62,7 @@
  * This is the header component which contains the router links and navbar
  */
 export default {
+    name: "Header",
     data() {
         return {
             scrollPosition: null,
