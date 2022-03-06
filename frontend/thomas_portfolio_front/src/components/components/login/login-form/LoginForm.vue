@@ -36,6 +36,7 @@ import axios from "axios";
  * This is the login form.  Its the child of the LoginComponent.
  */
 export default {
+  name: "LoginForm",
   data() {
     return {
       email: "",
