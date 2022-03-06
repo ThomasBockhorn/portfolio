@@ -26,12 +26,13 @@
 <script>
 /**
  * This modal will all the user to add, update, and delete projects.
+ * This is the child of the LoginComponent
  */
 export default {
   name: 'CrudModal',
   methods: {
    /**
-    * This method indicates to the parent to close this modal
+    * This method indicates to the parent to close this modal.
     *
     * @return void
     */

@@ -29,7 +29,7 @@
 import LoginForm from "../login-form/LoginForm.vue";
 import RegistrationForm from "../registration-form/RegistrationForm.vue";
 import ExitWarning from "../exit-warning/ExitWarning.vue";
-import CrudModal from "../../crudModal/modal.vue";
+import CrudModal from "../../crudModal/CrudModal.vue";
 
 export default {
   data() {
