@@ -25,11 +25,24 @@
 </template>
 
 <script>
+/**
+ * This component will exit the login/register modal.  It is the child of the LoginComponent
+ */
 export default {
   methods: {
+    /**
+     * This method will close the modal but not the login/register modal
+     *
+     * @return void
+     */
     close() {
       this.$emit("close");
     },
+    /**
+     * This will close the login/register modal
+     *
+     * @return void
+     */
     exit(){
       this.$emit("closeModel");
     }
