@@ -33,9 +33,10 @@ import CrudModal from "../../crudModal/CrudModal.vue";
 
 /**
  * LoginComponent is the main form which is the parent of CrudModal, ExitWarning, 
- * LoginForm, and RegistrationForm
+ * LoginForm, and RegistrationForm.  It is the child of modal component
  */
 export default {
+  name: "LoginComponent",
   data() {
     return {
       registration: false,

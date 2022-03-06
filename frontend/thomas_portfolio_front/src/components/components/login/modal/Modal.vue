@@ -14,10 +14,10 @@
         </div>
         <div class="modal-body">
           <transition name="modal-fade">
-            <LoginForm
+            <LoginComponent
               @clicked="nameOfForm"
               @closeModel="closeModel"
-            ></LoginForm>
+            ></LoginComponent>
           </transition>
         </div>
       </div>
@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import LoginForm from "../modal/LoginComponent.vue";
+import LoginComponent from "../modal/LoginComponent.vue";
 
 export default {
   name: "Modal",
   components: {
-    LoginForm,
+    LoginComponent,
   },
   data() {
     return {
