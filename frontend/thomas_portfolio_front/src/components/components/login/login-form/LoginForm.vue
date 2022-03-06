@@ -22,7 +22,7 @@
     <button
       type="submit"
       class="btn btn-outline-success"
-      @click="loginSubmition"
+      @click="loginSubmission"
     >
       Submit
     </button>
@@ -32,6 +32,9 @@
 <script>
 import axios from "axios";
 
+/**
+ * This is the login form.  Its the child of the LoginComponent.
+ */
 export default {
   data() {
     return {
@@ -40,7 +43,13 @@ export default {
     };
   },
   methods: {
-    loginSubmition(e) {
+    /**
+     * loginSubmission submits a request to the server to login to the admin api
+     *
+     * @param {event} e 
+     * @return void
+     */
+    loginSubmission(e) {
       e.preventDefault();
       axios
         .post("http://127.0.0.1:8000/api/login", {
@@ -57,6 +66,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-</style>
