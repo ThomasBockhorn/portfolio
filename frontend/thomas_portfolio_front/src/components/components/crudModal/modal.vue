@@ -24,14 +24,20 @@
 </template>
 
 <script>
+/**
+ * This modal will all the user to add, update, and delete projects.
+ */
 export default {
+  name: 'CrudModal',
   methods: {
-    close() {
+   /**
+    * This method indicates to the parent to close this modal
+    *
+    * @return void
+    */
+   close() {
       this.$emit("close");
     },
-    exit(){
-      this.$emit("closeModel");
-    }
   },
 };
 </script>
