@@ -58,6 +58,9 @@
 </template>
 
 <script>
+/**
+ * This is the header component which contains the router links and navbar
+ */
 export default {
     data() {
         return {
@@ -65,10 +68,21 @@ export default {
         };
     },
     methods: {
+        /**
+         * This method records the Y scroll position.  It will be used to change the background
+         * color of the header to black.
+         *
+         * @return void
+         */
         updateScrollPosition() {
             this.scrollPosition = window.scrollY;
         }
     },
+    /**
+     * This adds an EventListener when the header is mounted
+     *
+     * @return void
+     */
     mounted() {
         window.addEventListener("scroll", this.updateScrollPosition);
     },
