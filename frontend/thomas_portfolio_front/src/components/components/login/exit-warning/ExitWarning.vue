@@ -29,6 +29,7 @@
  * This component will exit the login/register modal.  It is the child of the LoginComponent
  */
 export default {
+  name: "ExitWarning",
   methods: {
     /**
      * This method will close the modal but not the login/register modal
