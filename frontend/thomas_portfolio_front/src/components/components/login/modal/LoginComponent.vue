@@ -31,6 +31,10 @@ import RegistrationForm from "../registration-form/RegistrationForm.vue";
 import ExitWarning from "../exit-warning/ExitWarning.vue";
 import CrudModal from "../../crudModal/CrudModal.vue";
 
+/**
+ * LoginComponent is the main form which is the parent of CrudModal, ExitWarning, 
+ * LoginForm, and RegistrationForm
+ */
 export default {
   data() {
     return {
@@ -48,12 +52,24 @@ export default {
     CrudModal,
   },
   methods: {
+    /**
+     * showRegistration will toggle the registration form to true and login to false.
+     * It will also change the name of the form to Register from default login
+     *
+     * @return void
+     */
     showRegistration() {
       this.registration = true;
       this.login = false;
       this.nameOfForm = "Register";
       this.$emit("clicked", this.nameOfForm);
     },
+    /**
+     * showLogin will toggle the registration form to false and login to true.
+     * It will change the name of the from to login
+     *
+     * @return void
+     */
     showLogin() {
       this.registration = false;
       this.login = true;
@@ -69,6 +85,12 @@ export default {
     closeModel() {
       this.$emit("closeModel");
     },
+    /**
+     * launchCrud will activate after login and a token is received from the server
+     *
+     * @param {String} token 
+     * @return void
+     */
     launchCrud(token) {
       if (token != 0) {
         this.successfulLogin = true;
