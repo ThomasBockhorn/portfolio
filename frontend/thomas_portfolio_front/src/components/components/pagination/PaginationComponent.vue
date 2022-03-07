@@ -32,7 +32,11 @@
 </template>
 
 <script>
+/**
+ * This component will allow for pagination of projects.  Its the child of Project.
+ */
 export default {
+  name:"PaginationComponent",
   data() {
     return {
       currentPage: 0,
@@ -40,10 +44,21 @@ export default {
   },
   props: ["totalPages"],
   methods: {
+    /**
+     * This will return page number to the Project that actally calls the server
+     *
+     * @param {Integer} page 
+     * @return void
+     */
     returnPage(page) {
       this.currentPage = page;
       this.$emit("clicked", page);
     },
+    /**
+     * moveUp will move the pages up then submit that to the returnPage method
+     *
+     * @return void
+     */
     moveUp() {
       if (this.currentPage < this.totalPages) {
         this.returnPage(this.currentPage + 1);
@@ -51,6 +66,11 @@ export default {
         this.returnPage(1);
       }
     },
+    /**
+     * moveDown will move the pages down then submit that to the returnPage method
+     *
+     * @return void
+     */
     moveDown() {
       if (this.currentPage > 1) {
         this.returnPage(this.currentPage - 1);
