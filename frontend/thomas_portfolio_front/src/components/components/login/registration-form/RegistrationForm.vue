@@ -48,7 +48,12 @@
 <script>
 import axios from "axios";
 
+/**
+ * This is the registration component.  Its the child of LoginComponent.  It allows the user
+ * to register and get access to the projects.
+ */
 export default {
+  name: "RegistrationForm",
   data() {
     return {
       name: "",
@@ -59,6 +64,12 @@ export default {
     };
   },
   methods: {
+    /**
+     * submitRegistration will submit info to the server
+     *
+     * @param {event} e 
+     * @return void
+     */
     submitRegistration(e) {
       e.preventDefault();
       axios
@@ -78,6 +89,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
