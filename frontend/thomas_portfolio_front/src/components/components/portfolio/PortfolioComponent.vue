@@ -19,11 +19,15 @@
 
 <script>
 import axios from "axios";
-import Project from "../components/projects/Project.vue";
-import PaginationComponent from "../components/pagination/PaginationComponent.vue";
-import ProjectNav from "../components/projectNav/ProjectNav.vue";
+import Project from "../projects/Project.vue";
+import PaginationComponent from "../pagination/PaginationComponent.vue";
+import ProjectNav from "../projectNav/ProjectNav.vue";
 
+/**
+ * PortfolioComponent is where all the projects are displayed.
+ */
 export default {
+  name:"PortfolioComponent",
   data() {
     return {
       projects: [],
@@ -41,6 +45,12 @@ export default {
     this.fetchData();
   },
   methods: {
+    /**
+     * fetchData fetches the project data using axios
+     *
+     * @param {Number} page 
+     * @return void
+     */
     fetchData(page = 1) {
       axios
         .get("http://127.0.0.1:8000/api/guest/projects?page=" + page)
@@ -52,6 +62,12 @@ export default {
           console.log(e);
         });
     },
+    /**
+     * fetchMeta fetches the meta data used for pagination
+     *
+     * @param {object} metaData 
+     * @return void
+     */
     fetchMeta(metaData) {
       //This creates an object that holds the meta data
       for (let index in metaData) {

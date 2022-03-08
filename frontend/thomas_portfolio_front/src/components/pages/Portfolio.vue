@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import PortfolioComponent from "../components/PortfolioComponent.vue";
+import PortfolioComponent from "../components/portfolio/PortfolioComponent.vue";
 import MainBanner from "../components/mainBanner/MainBanner.vue";
 
 export default {
