@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid m-0 p-0">
-    <img src="../../assets/geometric.jpg" alt="geometric banner" />
+    <img src="../../../assets/geometric.jpg" alt="geometric banner" />
     <div
       role="heading"
       aria-lavel="1"

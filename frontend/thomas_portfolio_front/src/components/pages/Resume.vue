@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import MainBanner from "../components/MainBanner.vue";
+import MainBanner from "../components/mainBanner/MainBanner.vue";
 import ResumeComponent from "../components/ResumeComponent.vue";
 
 export default {
