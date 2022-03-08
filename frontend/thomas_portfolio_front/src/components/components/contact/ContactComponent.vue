@@ -37,7 +37,12 @@
           </div>
         </div>
         <div class="col-12 mb-5">
-          <input type="submit" class="btn btn-outline-light" value="Send" @click="sendEmail"/>
+          <input
+            type="submit"
+            class="btn btn-outline-light"
+            value="Send"
+            @click="sendEmail"
+          />
         </div>
       </form>
     </div>
@@ -45,39 +50,47 @@
 </template>
 
 <script>
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 
+/**
+ * Contact allows the visitor in conjunction with emailjs.com to send email notifications to my email account.
+ */
 export default {
-    name: 'ContactUs',
-    data(){
-        return{
-           name: '',
-            email: '',
-            message: ''
-        }
+  name: "Contact",
+  data() {
+    return {
+      name: "",
+      email: "",
+      message: "",
+    };
+  },
+  methods: {
+    sendEmail(e) {
+      try {
+        emailjs.sendForm(
+          "tecktonetMailService",
+          "template_sx0lr8w",
+          e.target,
+          "tecktonetMail",
+          {
+            name: this.name,
+            email: this.email,
+            message: this.message,
+          }
+        );
+      } catch (error) {
+        console.log({ error });
+      }
+      (this.name = ""), (this.email = ""), (this.message = "");
     },
-    methods: {
-        sendEmail(e){
-            try{
-                emailjs.sendForm('tecktonetMailService', 'template_sx0lr8w', e.target, 'tecktonetMail', {
-                    name: this.name,
-                    email: this.email,
-                    message: this.message
-                })
-            }catch(error){
-                console.log({error})
-            }
-            this.name = '',
-            this.email= '',
-            this.message= ''
-        },
-    }
+  },
 };
 </script>
 
 <style scoped>
-label, h3{
-  font-family: 'Libre Baskerville', serif;
+label,
+h3 {
+  font-family: "Libre Baskerville", serif;
   color: white;
 }
 </style>
