@@ -13,7 +13,11 @@
 </template>
 
 <script>
+/**
+ * Project component is a general template
+ */
 export default {
+  name: "Project",
   props: ["project"],
   data() {
     return {
