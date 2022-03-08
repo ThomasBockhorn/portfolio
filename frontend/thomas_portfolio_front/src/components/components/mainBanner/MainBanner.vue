@@ -19,7 +19,12 @@
 </template>
 
 <script>
+/**
+ * Main Banner which presents the main title and subtitle based on Router link
+ */
+
 export default {
+  name: "MainBanner",
   data() {
     return {
       title: String,
