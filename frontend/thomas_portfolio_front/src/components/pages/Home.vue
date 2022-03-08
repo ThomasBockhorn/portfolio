@@ -7,7 +7,7 @@
 
 <script>
 import MainBanner from "../components/MainBanner.vue";
-import AboutComponent from "../components/AboutComponent.vue";
+import AboutComponent from "../components/About/AboutComponent.vue";
 
 export default {
     components: {

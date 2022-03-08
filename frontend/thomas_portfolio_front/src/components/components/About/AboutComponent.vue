@@ -2,7 +2,7 @@
     <div class="container-fluid mt-2 mb-2">
         <div id="about" class="row mt-5">
             <div class="col-md-5">
-                <img src="../../assets/ThomasBockhorn.jpg" alt="self image" />
+                <img src="../../../assets/ThomasBockhorn.jpg" alt="self image" />
             </div>
             <div class="col-sm-5 mt-2">
                 <h1>About Me</h1>
@@ -39,11 +39,6 @@
         </div>
     </div>
 </template>
-
-<script>
-export default {};
-</script>
-
 <style scoped>
 img {
     width: 100%;
