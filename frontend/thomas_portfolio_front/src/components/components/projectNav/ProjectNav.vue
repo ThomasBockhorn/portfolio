@@ -22,6 +22,7 @@ import Modal from "../login/modal/Modal.vue";
  * ProjectNav component allows the user to login to add/edit/delete projects
  */
 export default {
+  name: "ProjectNav",
   components: {
     Modal,
   },
