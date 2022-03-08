@@ -7,7 +7,7 @@
 
 <script>
 import MainBanner from "../components/MainBanner.vue";
-import ContactComponent from "../components/ContactComponent.vue";
+import ContactComponent from "../components/contact/ContactComponent.vue";
 
 export default {
     components:{
