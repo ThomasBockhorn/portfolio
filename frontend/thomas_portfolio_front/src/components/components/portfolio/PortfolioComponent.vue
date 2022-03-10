@@ -22,6 +22,7 @@ import axios from "axios";
 import Project from "../projects/Project.vue";
 import PaginationComponent from "../pagination/PaginationComponent.vue";
 import ProjectNav from "../projectNav/ProjectNav.vue";
+import { store } from "../../../store/store.js";
 
 /**
  * PortfolioComponent is where all the projects are displayed.
@@ -30,10 +31,10 @@ export default {
   name:"PortfolioComponent",
   data() {
     return {
-      projects: [],
+      //projects: [],
       location: "portfolio",
-      parsedMeta: {},
-      totalPages: 0,
+      //parsedMeta: {},
+      totalPages: 5,
     };
   },
   components: {
@@ -41,8 +42,19 @@ export default {
     PaginationComponent,
     ProjectNav,
   },
-  async mounted() {
-    this.fetchData();
+  created() {
+    //this.fetchData();
+    store.dispatch("getProjects");
+    console.log(store.state.pagination.total);
+    this.totalPages = store.state.pagination.last_page;
+  },
+  computed:{
+    projects(){
+      return store.state.projects;
+    },
+   // setTotalPages(){
+   //   this.totalPages = store.state.pagination.total;
+   // }
   },
   methods: {
     /**
@@ -68,7 +80,10 @@ export default {
      * @param {object} metaData 
      * @return void
      */
-    fetchMeta(metaData) {
+    fetchMeta() {
+      
+      let metaData = this.store.state.pagination
+      
       //This creates an object that holds the meta data
       for (let index in metaData) {
         this.parsedMeta[index] = metaData[index];
