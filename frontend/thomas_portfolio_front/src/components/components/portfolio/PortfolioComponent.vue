@@ -12,13 +12,12 @@
     </div>
     <PaginationComponent
       :totalPages="totalPages"
-      @clicked="getPage"
+      @clicked="fetchData"
     ></PaginationComponent>
   </div>
 </template>
 
 <script>
-import axios from "axios";
 import Project from "../projects/Project.vue";
 import PaginationComponent from "../pagination/PaginationComponent.vue";
 import ProjectNav from "../projectNav/ProjectNav.vue";
@@ -28,13 +27,11 @@ import { store } from "../../../store/store.js";
  * PortfolioComponent is where all the projects are displayed.
  */
 export default {
-  name:"PortfolioComponent",
+  name: "PortfolioComponent",
   data() {
     return {
-      //projects: [],
       location: "portfolio",
-      //parsedMeta: {},
-      totalPages: 5,
+      totalPages: 0,
     };
   },
   components: {
@@ -42,57 +39,18 @@ export default {
     PaginationComponent,
     ProjectNav,
   },
-  created() {
-    //this.fetchData();
-    store.dispatch("getProjects");
-    console.log(store.state.pagination.total);
-    this.totalPages = store.state.pagination.last_page;
+  mounted() {
+    this.fetchData();
+    this.totalPages = store.getters.allPagination.last_page;
   },
-  computed:{
-    projects(){
-      return store.state.projects;
+  computed: {
+    projects() {
+      return store.getters.allProjects;
     },
-   // setTotalPages(){
-   //   this.totalPages = store.state.pagination.total;
-   // }
   },
   methods: {
-    /**
-     * fetchData fetches the project data using axios
-     *
-     * @param {Number} page 
-     * @return void
-     */
     fetchData(page = 1) {
-      axios
-        .get("http://127.0.0.1:8000/api/guest/projects?page=" + page)
-        .then((response) => {
-          this.projects = response.data.data.data;
-          this.fetchMeta(response.data.data.pagination);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
-    /**
-     * fetchMeta fetches the meta data used for pagination
-     *
-     * @param {object} metaData 
-     * @return void
-     */
-    fetchMeta() {
-      
-      let metaData = this.store.state.pagination
-      
-      //This creates an object that holds the meta data
-      for (let index in metaData) {
-        this.parsedMeta[index] = metaData[index];
-      }
-      //gets the last page
-      this.totalPages = this.parsedMeta["last_page"];
-    },
-    getPage(page) {
-      this.fetchData(page);
+      store.dispatch("getProjects", page);
     },
   },
 };

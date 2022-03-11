@@ -12,7 +12,10 @@ export const store = createStore({
             pagination: {}
         }
     },
-    getters: {},
+    getters: {
+        allProjects: (state) => state.projects,
+        allPagination: (state) => state.pagination
+    },
     actions: {
         getProjects({ commit }, page = 1) {
             axios.get("http://127.0.0.1:8000/api/guest/projects?page=" + page)
