@@ -21,7 +21,6 @@
 import Project from "../projects/Project.vue";
 import PaginationComponent from "../pagination/PaginationComponent.vue";
 import ProjectNav from "../projectNav/ProjectNav.vue";
-import { store } from "../../../store/store.js";
 
 /**
  * PortfolioComponent is where all the projects are displayed.
@@ -31,6 +30,7 @@ export default {
   data() {
     return {
       location: "portfolio",
+      projects: []
     };
   },
   components: {
@@ -39,19 +39,17 @@ export default {
     ProjectNav,
   },
   mounted() {
-    store.dispatch("getProjects");
+    this.fetchData(1);
   },
   computed: {
-    projects() {
-      return store.state.projects;
-    },
     totalPages() {
-      return store.state.pagination.last_page;
+      return this.$store.state.pagination.last_page;
     },
   },
   methods: {
     fetchData(page) {
-      store.dispatch("getProjects", page);
+      this.$store.dispatch("getProjects", page);
+      this.projects = this.$store.getters.projects;
     },
   },
 };
