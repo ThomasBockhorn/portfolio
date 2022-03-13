@@ -31,8 +31,6 @@ export default {
   data() {
     return {
       location: "portfolio",
-      totalPages: 0,
-      projects: []
     };
   },
   components: {
@@ -41,13 +39,19 @@ export default {
     ProjectNav,
   },
   mounted() {
-    this.fetchData();
-    this.totalPages = store.state.pagination.last_page;
+    store.dispatch("getProjects");
+  },
+  computed: {
+    projects() {
+      return store.state.projects;
+    },
+    totalPages() {
+      return store.state.pagination.last_page;
+    },
   },
   methods: {
     fetchData(page) {
-     store.dispatch("getProjects", page);
-      this.projects = store.state.projects;
+      store.dispatch("getProjects", page);
     },
   },
 };

@@ -14,6 +14,7 @@ export const store = createStore({
     },
     actions: {
         async getProjects({ commit }, page = 1) {
+            alert("This works!");
             await axios.get("http://127.0.0.1:8000/api/guest/projects?page=" + page)
                 .then(response => {
                     commit('SET_PROJECTS', response.data.data.data);
