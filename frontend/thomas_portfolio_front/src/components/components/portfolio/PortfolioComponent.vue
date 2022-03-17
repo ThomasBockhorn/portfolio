@@ -47,8 +47,8 @@ export default {
     },
   },
   methods: {
-    fetchData(page) {
-      this.$store.dispatch("getProjects", page);
+    async fetchData(page) {
+      await this.$store.dispatch("getProjects", page);
       this.projects = this.$store.getters.projects;
     },
   },
