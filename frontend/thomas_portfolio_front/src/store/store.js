@@ -15,6 +15,9 @@ export const store = createStore({
     getters: {
         projects: state => {
             return state.projects;
+        },
+        pagination: state => {
+            return state.pagination;
         }
     },
     actions: {

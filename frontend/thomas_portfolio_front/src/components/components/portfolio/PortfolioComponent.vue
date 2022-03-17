@@ -30,7 +30,9 @@ export default {
   data() {
     return {
       location: "portfolio",
-      projects: []
+      projects: [],
+      pagination: {},
+      totalPages: 0
     };
   },
   components: {
@@ -42,14 +44,16 @@ export default {
     this.fetchData(1);
   },
   computed: {
-    totalPages() {
-      return this.$store.state.pagination.last_page;
+    findLastPage() {
+      return this.totalPages;
     },
   },
   methods: {
     async fetchData(page) {
       await this.$store.dispatch("getProjects", page);
       this.projects = this.$store.getters.projects;
+      this.pagination = this.$store.getters.pagination;
+      this.totalPages = this.$store.getters.pagination.last_page;
     },
   },
 };
