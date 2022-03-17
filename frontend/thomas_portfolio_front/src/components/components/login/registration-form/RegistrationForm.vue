@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 
 /**
  * This is the registration component.  Its the child of LoginComponent.  It allows the user
@@ -64,27 +64,24 @@ export default {
     };
   },
   methods: {
-    /**
-     * submitRegistration will submit info to the server
-     *
-     * @param {event} e 
-     * @return void
-     */
+   /**
+    * Submits user Input into the database for registration
+    *
+    * @param {any} e 
+    * @return void
+    */
     submitRegistration(e) {
       e.preventDefault();
-      axios
-        .post("http://127.0.0.1:8000/api/register", {
-          name: this.name,
-          email: this.email,
-          password: this.password,
-        })
-        .then((response) => {
-          this.token = response.data.data.token;
-        })
-        .catch((error) => {
-          console.log("Error: ", error.response.data.data);
-        });
-        this.$emit("backToLogin");
+      
+      //User Input
+      const userInput = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+      };
+
+      this.$store.dispatch("submitRegistration", userInput);
+      this.$emit("backToLogin");
     },
   },
 };
