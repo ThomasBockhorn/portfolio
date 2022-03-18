@@ -60,8 +60,6 @@ export default {
 
       await this.$store.dispatch("login", userInfo);
 
-      console.log(this.$store.getters.successful);
-
       if(this.$store.getters.successful){
         this.$emit("successful");
       } else {
