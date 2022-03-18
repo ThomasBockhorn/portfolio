@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 
 /**
  * This is the login form.  Its the child of the LoginComponent.
@@ -52,17 +52,19 @@ export default {
      */
     loginSubmission(e) {
       e.preventDefault();
-      axios
-        .post("http://127.0.0.1:8000/api/login", {
-          email: this.email,
-          password: this.password,
-        })
-        .then((response) => {
-            this.$emit("successful", response.data.data.token);
-        })
-        .catch((error) => {
-          console.log("Error: ", error.response.data.data);
-        });
+      
+      const userInfo = {
+        email: this.email,
+        password: this.password
+      };
+
+      this.$store.dispatch("login", userInfo);
+
+      if(this.$store.getters.successful == true){
+        this.$emit("successful", this.$store.getters.token);
+      } else {
+        alert('Wrong info!');
+      }
     },
   },
 };

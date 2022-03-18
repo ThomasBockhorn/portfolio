@@ -1,0 +1,24 @@
+/**
+ * actions for userLogin store
+ */
+import axios from 'axios';
+
+const actions = {
+    async login({ commit }, userInfo) {
+        return await axios
+            .post("http://127.0.0.1:8000/api/login", {
+                email: userInfo.email,
+                password: userInfo.password,
+            })
+            .then((response) => {
+                //this.$emit("successful", response.data.data.token);
+                commit('SET_TOKEN', response.data.data.token);
+                commit('SET_SUCCESSFUL', true);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+}
+
+export default actions;
