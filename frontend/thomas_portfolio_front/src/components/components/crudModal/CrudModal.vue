@@ -13,10 +13,39 @@
               @click="close"
             ></button>
           </div>
-          <div class="modal-body text-center">...</div>
-          <div class="modal-footer">
-            ...
+          <div class="modal-body text-center">
+            <div class="list-group">
+              <a
+                href="#"
+                class="list-group-item list-group-item-action"
+                aria-current="true"
+              >
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">List group item heading</h5>
+                  <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                <small>And some small print.</small>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">List group item heading</h5>
+                  <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                <small class="text-muted">And some muted small print.</small>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">List group item heading</h5>
+                  <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                <small class="text-muted">And some muted small print.</small>
+              </a>
+            </div>
           </div>
+          <div class="modal-footer">...</div>
         </div>
       </div>
     </div>
@@ -29,14 +58,14 @@
  * This is the child of the LoginComponent
  */
 export default {
-  name: 'CrudModal',
+  name: "CrudModal",
   methods: {
-   /**
-    * This method indicates to the parent to close this modal.
-    *
-    * @return void
-    */
-   close() {
+    /**
+     * This method indicates to the parent to close this modal.
+     *
+     * @return void
+     */
+    close() {
       this.$emit("close");
     },
   },

@@ -50,7 +50,7 @@ export default {
      * @param {event} e 
      * @return void
      */
-    loginSubmission(e) {
+    async loginSubmission(e) {
       e.preventDefault();
       
       const userInfo = {
@@ -58,10 +58,12 @@ export default {
         password: this.password
       };
 
-      this.$store.dispatch("login", userInfo);
+      await this.$store.dispatch("login", userInfo);
 
-      if(this.$store.getters.successful == true){
-        this.$emit("successful", this.$store.getters.token);
+      console.log(this.$store.getters.successful);
+
+      if(this.$store.getters.successful){
+        this.$emit("successful");
       } else {
         alert('Wrong info!');
       }

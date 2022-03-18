@@ -4,7 +4,7 @@
 
 const mutations = {
     SET_TOKEN(state, token) {
-        state.token = token;
+        state.userLoginToken = token;
     },
     SET_SUCCESSFUL(state, successful) {
         state.successful = successful;

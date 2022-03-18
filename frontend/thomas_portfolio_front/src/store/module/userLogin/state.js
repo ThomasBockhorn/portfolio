@@ -5,7 +5,7 @@ const state = {
     return: {
         email: "",
         password: "",
-        token: "",
+        userLoginToken: "",
         successful: Boolean
     }
 };

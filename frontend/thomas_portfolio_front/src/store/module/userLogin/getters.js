@@ -9,7 +9,7 @@ const getters = {
         return state.password;
     },
     token: state => {
-        return state.token;
+        return state.userLoginToken;
     },
     successful: state => {
         return state.successful;

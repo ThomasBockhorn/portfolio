@@ -11,11 +11,11 @@ const actions = {
                 password: userInfo.password,
             })
             .then((response) => {
-                //this.$emit("successful", response.data.data.token);
                 commit('SET_TOKEN', response.data.data.token);
                 commit('SET_SUCCESSFUL', true);
             })
             .catch((error) => {
+                commit('SET_SUCCESSFUL', false);
                 console.log(error);
             });
     },
