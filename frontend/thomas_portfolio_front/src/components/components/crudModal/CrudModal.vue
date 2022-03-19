@@ -15,37 +15,22 @@
           </div>
           <div class="modal-body text-center">
             <div class="list-group">
-              <a
-                href="#"
-                class="list-group-item list-group-item-action"
-                aria-current="true"
-              >
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">List group item heading</h5>
-                  <small>3 days ago</small>
-                </div>
-                <p class="mb-1">Some placeholder content in a paragraph.</p>
-                <small>And some small print.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">List group item heading</h5>
-                  <small class="text-muted">3 days ago</small>
-                </div>
-                <p class="mb-1">Some placeholder content in a paragraph.</p>
-                <small class="text-muted">And some muted small print.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">List group item heading</h5>
-                  <small class="text-muted">3 days ago</small>
-                </div>
-                <p class="mb-1">Some placeholder content in a paragraph.</p>
-                <small class="text-muted">And some muted small print.</small>
-              </a>
+              <div v-for="project in projects" :key="project.id">
+                <CrudProject :project="project"></CrudProject>
+              </div>
             </div>
           </div>
-          <div class="modal-footer">...</div>
+          <div class="modal-footer">
+            <nav aria-label="crud navigation">
+              <ul class="pagination pagination-sm">
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">1</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </div>
@@ -57,8 +42,19 @@
  * This modal will all the user to add, update, and delete projects.
  * This is the child of the LoginComponent
  */
+
+import CrudProject from "./project/crudProject.vue";
+
 export default {
   name: "CrudModal",
+  components: {
+    CrudProject,
+  },
+  computed: {
+    projects() {
+      return this.$store.getters.projects;
+    },
+  },
   methods: {
     /**
      * This method indicates to the parent to close this modal.
