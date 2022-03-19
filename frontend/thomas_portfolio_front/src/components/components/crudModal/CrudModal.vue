@@ -28,11 +28,18 @@
             </div>
             <nav aria-label="crud navigation">
               <ul class="pagination pagination-sm">
-                <div v-for="page in pages" :key="page">
-                  <li class="page-item" @click="tab = page" :class="{active: tab === page}">
-                    <a class="page-link" aria-current="page">{{
-                      page
-                    }}</a>
+                <div v-for="page in totalPages" :key="page">
+                  <li
+                    class="page-item"
+                    @click="tab = page"
+                    :class="{ active: tab === page }"
+                  >
+                    <a
+                      class="page-link"
+                      aria-current="page"
+                      @click="fetchData(page)"
+                      >{{ page }}</a
+                    >
                   </li>
                 </div>
               </ul>
@@ -54,22 +61,18 @@ import CrudProject from "./project/crudProject.vue";
 
 export default {
   name: "CrudModal",
-  data(){
-    return{
-      tab: 0
-    }
+  data() {
+    return {
+      tab: 1,
+      totalPages: 0,
+      projects: 1
+    };
   },
   components: {
     CrudProject,
   },
-  computed: {
-    projects() {
-      return this.$store.getters.projects;
-    },
-    pages() {
-      return this.$store.getters.pagination.last_page;
-    }
-
+  mounted() {
+    this.fetchData();
   },
   methods: {
     /**
@@ -81,8 +84,11 @@ export default {
       this.$emit("close");
     },
 
-
-
+    async fetchData(page) {
+      await this.$store.dispatch("getProjects", page);
+      this.projects = this.$store.getters.projects;
+      this.totalPages = this.$store.getters.pagination.last_page;
+    },
   },
 };
 </script>
