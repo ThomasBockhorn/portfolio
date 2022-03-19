@@ -22,15 +22,19 @@
           </div>
           <div class="modal-footer">
             <div>
-              <button class="btn-outline-secondary btn mb-3">Add A Project</button>
+              <button class="btn-outline-secondary btn mb-3">
+                Add A Project
+              </button>
             </div>
             <nav aria-label="crud navigation">
               <ul class="pagination pagination-sm">
-                <li class="page-item active" aria-current="page">
-                  <span class="page-link">1</span>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <div v-for="page in pages" :key="page">
+                  <li class="page-item">
+                    <a class="page-link" aria-current="page" href="#">{{
+                      page
+                    }}</a>
+                  </li>
+                </div>
               </ul>
             </nav>
           </div>
@@ -56,6 +60,9 @@ export default {
   computed: {
     projects() {
       return this.$store.getters.projects;
+    },
+    pages() {
+      return this.$store.getters.pagination.last_page;
     },
   },
   methods: {
