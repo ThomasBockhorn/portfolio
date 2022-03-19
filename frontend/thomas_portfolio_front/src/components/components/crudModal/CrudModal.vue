@@ -29,8 +29,8 @@
             <nav aria-label="crud navigation">
               <ul class="pagination pagination-sm">
                 <div v-for="page in pages" :key="page">
-                  <li class="page-item">
-                    <a class="page-link" aria-current="page" href="#">{{
+                  <li class="page-item" @click="tab = page" :class="{active: tab === page}">
+                    <a class="page-link" aria-current="page">{{
                       page
                     }}</a>
                   </li>
@@ -54,6 +54,11 @@ import CrudProject from "./project/crudProject.vue";
 
 export default {
   name: "CrudModal",
+  data(){
+    return{
+      tab: 0
+    }
+  },
   components: {
     CrudProject,
   },
@@ -63,7 +68,8 @@ export default {
     },
     pages() {
       return this.$store.getters.pagination.last_page;
-    },
+    }
+
   },
   methods: {
     /**
@@ -74,6 +80,9 @@ export default {
     close() {
       this.$emit("close");
     },
+
+
+
   },
 };
 </script>
