@@ -6,7 +6,12 @@
         <small>{{ project.updated_at }}</small>
       </div>
       <p class="mb-1">{{ project.description }}</p>
-      <small>And some small print.</small>
+      <small>
+          <div>
+               <button class="btn btn-outline-primary m-1">Edit</button>
+               <button class="btn btn-outline-danger m-1">Delete</button>
+          </div>
+         </small>
     </a>
   </div>
 </template>

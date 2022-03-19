@@ -21,6 +21,9 @@
             </div>
           </div>
           <div class="modal-footer">
+            <div>
+              <button class="btn-outline-secondary btn mb-3">Add A Project</button>
+            </div>
             <nav aria-label="crud navigation">
               <ul class="pagination pagination-sm">
                 <li class="page-item active" aria-current="page">
