@@ -1,11 +1,34 @@
 /**
- * Actions for portfolio store
+ * Actions for CrudOperations
  */
-import axios from 'axios'
-
+import axios from "@/axios/axios";
 
 const actions = {
-    async getProjects({ commit }, page) {
+
+    /**
+     * 
+     * Store action that removes a project
+     * 
+     * @param {Integer} entryID 
+     */
+    async removeProject({ commit }, entryID) {
+        await axios.delete('/admin/projects/' + entryID)
+            .then(() => {
+                commit('DELETE_PROJECT', entryID);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    },
+
+
+    /**
+     * 
+     * RetrieveProjects retrieve projects
+     * 
+     * @returns 
+     */
+    async retrieveProjects({ commit }, page) {
         return await axios.get("http://127.0.0.1:8000/api/guest/projects?page=" + page)
             .then(response => {
                 commit('SET_PROJECTS', response.data.data.data);
@@ -24,7 +47,6 @@ const actions = {
             .catch((e) => {
                 console.log(e);
             });
-    },
-};
-
+    }
+}
 export default actions;

@@ -16,7 +16,7 @@
           <div class="modal-body text-center">
             <div class="list-group">
               <div v-for="project in projects" :key="project.id">
-                <CrudProject :project="project"></CrudProject>
+                <AuthProject :project="project" @clicked="deleteProject"></AuthProject>
               </div>
             </div>
           </div>
@@ -57,22 +57,22 @@
  * This is the child of the LoginComponent
  */
 
-import CrudProject from "./project/crudProject.vue";
+import AuthProject from "./project/authProject.vue";
 
 export default {
-  name: "CrudModal",
+  name: "AuthModal",
   data() {
     return {
       tab: 1,
       totalPages: 0,
-      projects: 1
+      projects: [],
     };
   },
   components: {
-    CrudProject,
+    AuthProject,
   },
   mounted() {
-    this.fetchData();
+    this.fetchData(1);
   },
   methods: {
     /**
@@ -84,11 +84,27 @@ export default {
       this.$emit("close");
     },
 
+    /**
+     * fetchData will fetch the data and populate it
+     *
+     * @param {Integer} page 
+     * @return void
+     */
     async fetchData(page) {
-      await this.$store.dispatch("getProjects", page);
-      this.projects = this.$store.getters.projects;
-      this.totalPages = this.$store.getters.pagination.last_page;
+      await this.$store.dispatch("retrieveProjects", page);
+      this.projects = this.$store.getters.auth_Projects;
+      this.totalPages = this.$store.getters.auth_Pagination.last_page;
     },
+
+    /**
+     * Deletes a project
+     *
+     * @param {Integer} id 
+     * @return void
+     */
+    deleteProject(id){
+      this.$store.dispatch("removeProject", id);
+    }
   },
 };
 </script>
