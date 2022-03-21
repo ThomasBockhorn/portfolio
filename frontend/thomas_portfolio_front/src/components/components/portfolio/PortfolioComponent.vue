@@ -52,7 +52,6 @@ export default {
     async fetchData(page) {
       await this.$store.dispatch("getProjects", page);
       this.projects = this.$store.getters.projects;
-      this.pagination = this.$store.getters.pagination;
       this.totalPages = this.$store.getters.pagination.last_page;
     },
   },
