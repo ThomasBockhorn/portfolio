@@ -13,7 +13,6 @@ const actions = {
      * @param {Integer} entryID 
      */
     async removeProject({ commit }, entryID) {
-        await Csrf.getCookie();
         return await axios.delete("/api/admin/projects/" + entryID)
             .then(() => {
                 commit('DELETE_PROJECT', entryID);
