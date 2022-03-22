@@ -75,11 +75,7 @@ export default {
     this.fetchData(1);
   },
   methods: {
-    /**
-     * This method indicates to the parent to close this modal.
-     *
-     * @return void
-     */
+    
     close() {
       this.$emit("close");
     },
@@ -104,6 +100,8 @@ export default {
      */
     deleteProject(id){
       this.$store.dispatch("removeProject", id);
+      this.projects = this.$store.getters.auth_Projects;
+      this.totalPages = this.$store.getters.auth_Pagination.last_page;
     }
   },
 };

@@ -2,6 +2,7 @@
  * Actions for CrudOperations
  */
 import axios from "@/axios/axios";
+import Csrf from "../../../apis/Csrf";
 
 const actions = {
 
@@ -12,7 +13,8 @@ const actions = {
      * @param {Integer} entryID 
      */
     async removeProject({ commit }, entryID) {
-        await axios.delete('/admin/projects/' + entryID)
+        await Csrf.getCookie();
+        return await axios.delete("/api/admin/projects/" + entryID)
             .then(() => {
                 commit('DELETE_PROJECT', entryID);
             })
@@ -29,7 +31,7 @@ const actions = {
      * @returns 
      */
     async retrieveProjects({ commit }, page) {
-        return await axios.get("http://127.0.0.1:8000/api/guest/projects?page=" + page)
+        return await axios.get("/api/admin/projects?page=" + page)
             .then(response => {
                 commit('SET_PROJECTS', response.data.data.data);
                 commit('SET_PAGINATION', {
