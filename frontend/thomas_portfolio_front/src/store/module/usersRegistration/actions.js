@@ -11,7 +11,6 @@ const actions = {
      * @return void
      */
     async submitRegistration({ commit }, userInput) {
-        console.log(userInput);
         await axios
             .post("http://127.0.0.1:8000/api/register", {
                 name: userInput.name,
