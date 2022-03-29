@@ -60,8 +60,11 @@ class UserController extends Controller
 
         try {
             if (Auth::attempt($response)) {
+                
+                $user = User::findOrFail($response['email']);
+                
                 return $this->success([
-                    'token' => Auth()->user()->createToken('API Token')->plainTextToken
+                    'token' => $user->createToken('API Token')->plainTextToken
                 ]);
             }
         } catch (QueryException $ex) {
